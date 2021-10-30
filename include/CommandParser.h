@@ -17,7 +17,7 @@ namespace Shell379 {
          * @param internal_call if a call is internal, extra information will not be printed
          * @return
          */
-        static int parse(bool internal_call=false);
+        static int parse(bool &return_eof, std::queue<int> &work_queue);
 
     private:
 

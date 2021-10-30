@@ -15,7 +15,7 @@ TARGET	:= bin/$(PRJNAME)
 
 # Do not remove -MP -MD flags. These are necessary for generating *.d files,
 # which contains rules for headers
-CFLAGS := -std=c++11 -MP -MD
+CFLAGS := -std=c++11 -MP -MD -pthread
 DEBUG := $(CFLAGS) -Wall -O0 -g -D_GLIBCXX_DEBUG -DDEBUG_MODE
 RELEASE := $(CFLAGS) -Wall -O0 -g -D_GLIBCXX_DEBUG
 

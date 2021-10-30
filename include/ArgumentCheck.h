@@ -1,36 +1,22 @@
 #pragma once
 
+#include <PCH.h>
+
+
 namespace ProdCon {
-
-    static void checkArg(int &argc, char const *argv[], int &return_thread_num, std::string &return_log_ID) {
-
-        std::string ID = "0";
-
-        if (argc == 1) {
-            std::cout << "Error: No number of threads specified" << std::endl;
-            exit(-1);
-        }
-
-        if (argc > 3) {
-            std::cout << "Error: Unspecified inputs" << std::endl;
-            exit(-1);
-        }
-
-        if (argc == 3) {
-            ID = argv[2];
-        }
-
-        if (ID != "0") {
-            return_log_ID = "prodcon." + ID + ".log";
-        }
-        else {
-            return_log_ID = "prodcon.log";
-        }
-        return_thread_num = std::stoi(argv[1]);
-
-#if DEBUG_MODE
-        std::cout << "Log file is: " << return_log_ID << std::endl;
-#endif
-
-    }
+    /**
+     * Checking input argument at the call for the program. Specifically argc and argv
+     */
+    class ArgumentCheck {
+    public:
+        /**
+         * Handle arguments. Return number of threads user issued. Return the designated log file.
+         *
+         * @param argc
+         * @param argv
+         * @param return_thread_num
+         * @param return_log_ID
+         */
+        static void checkArg(int &argc, char const *argv[], int &return_thread_num, std::string &return_log_ID);
+    };
 }
