@@ -12,7 +12,7 @@ namespace ProdCon {
         }
 
         if (argc > 3) {
-            std::cout << "Unspecified inputs" << std::endl;
+            std::cout << "Error: Unspecified inputs" << std::endl;
             exit(-1);
         }
 
@@ -20,7 +20,17 @@ namespace ProdCon {
             ID = argv[2];
         }
 
-        return_log_ID = "prodcon." + ID + ".log";
-        std::cout << "Id is: " << return_log_ID << std::endl;
+        if (ID != "0") {
+            return_log_ID = "prodcon." + ID + ".log";
+        }
+        else {
+            return_log_ID = "prodcon.log";
+        }
+        return_thread_num = std::stoi(argv[1]);
+
+#if DEBUG_MODE
+        std::cout << "Log file is: " << return_log_ID << std::endl;
+#endif
+
     }
 }

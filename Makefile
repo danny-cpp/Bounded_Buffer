@@ -20,7 +20,7 @@ DEBUG := $(CFLAGS) -Wall -O0 -g -D_GLIBCXX_DEBUG -DDEBUG_MODE
 RELEASE := $(CFLAGS) -Wall -O0 -g -D_GLIBCXX_DEBUG
 
 # CONFIGURE RELEASE/DEBUG MODE HERE
-MODE := $(RELEASE)
+MODE := $(DEBUG)
 
 SRC	:= $(shell find $(SRCDIR) -type f -name *.cpp)
 OBJS	:= $(patsubst $(SRCDIR)/%, $(BLDDIR)/%, $(SRC:.cpp=.o))

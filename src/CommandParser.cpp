@@ -4,20 +4,32 @@
 namespace Shell379 {
     int CommandParser::parse(bool internal_call) {
 
-        std::cout << "\nSHELL379: ";
 
         std::string raw_in;
         std::vector<std::string> inputs;
-        std::getline(std::cin, raw_in);
-        std::istringstream stream(raw_in);
 
         std::string s;
-        while (stream >> s) {
-            inputs.push_back(s);
+
+        while(!std::cin.eof()) {
+            getline(std::cin, s);
+            std::cout << s << std::endl;
         }
+
+        // while (!inFile.eof())) {
+        //     std::cin.getline(&s);
+        //     inputs.push_back(s);
+        //     std::cout << s << std::endl;
+        // }
+
+
 
         int length = (int)inputs.size();
 
         return 0;
+    }
+
+    void readData(std::istream& in)
+    {
+        // Do the necessary work to read the data.
     }
 }
