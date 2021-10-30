@@ -4,6 +4,7 @@
 #include "ArgumentCheck.h"
 #include "CommandParser.h"
 #include "InstructionToken.h"
+#include "BufferedChannel.h"
 
 
 std::atomic<long long> counter(0);
@@ -26,7 +27,8 @@ int main(int argc, char const *argv[]) {
 
     std::cout << "helloWorld" << std::endl;
 
-    ProdCon::InstructionToken t(1, 2);
+    // ProdCon::InstructionToken t(1, 2);
+    ProdCon::BufferedChannel<int> chan(10);
 
 	return 0;
 }

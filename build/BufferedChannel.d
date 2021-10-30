@@ -1,5 +1,5 @@
-build/InstructionToken.o: src/InstructionToken.cpp \
- /usr/include/stdc-predef.h include/InstructionToken.h include/PCH.h \
+build/BufferedChannel.o: src/BufferedChannel.cpp \
+ /usr/include/stdc-predef.h include/BufferedChannel.h include/PCH.h \
  /usr/include/c++/9/cstdio \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
@@ -307,7 +307,7 @@ build/InstructionToken.o: src/InstructionToken.cpp \
 
 /usr/include/stdc-predef.h:
 
-include/InstructionToken.h:
+include/BufferedChannel.h:
 
 include/PCH.h:
 
