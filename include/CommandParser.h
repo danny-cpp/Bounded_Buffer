@@ -6,6 +6,8 @@
 
 #include  <PCH.h>
 
+#include "InstructionToken.h"
+
 
 namespace Shell379 {
     class CommandParser {

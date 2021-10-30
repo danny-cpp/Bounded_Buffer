@@ -3,6 +3,7 @@
 
 #include "ArgumentCheck.h"
 #include "CommandParser.h"
+#include "InstructionToken.h"
 
 
 std::atomic<long long> counter(0);
@@ -25,6 +26,7 @@ int main(int argc, char const *argv[]) {
 
     std::cout << "helloWorld" << std::endl;
 
+    ProdCon::InstructionToken t(1, 2);
 
 	return 0;
 }

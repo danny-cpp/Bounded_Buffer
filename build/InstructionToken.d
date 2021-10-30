@@ -1,5 +1,6 @@
-build/CommandParser.o: src/CommandParser.cpp /usr/include/stdc-predef.h \
- include/CommandParser.h include/PCH.h /usr/include/c++/9/cstdio \
+build/InstructionToken.o: src/InstructionToken.cpp \
+ /usr/include/stdc-predef.h src/../include/InstructionToken.h \
+ include/PCH.h /usr/include/c++/9/cstdio \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -302,11 +303,11 @@ build/CommandParser.o: src/CommandParser.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/9/debug/safe_local_iterator.h \
  /usr/include/c++/9/debug/safe_local_iterator.tcc \
  /usr/include/c++/9/unordered_set /usr/include/c++/9/bits/unordered_set.h \
- /usr/include/c++/9/debug/unordered_set include/InstructionToken.h
+ /usr/include/c++/9/debug/unordered_set
 
 /usr/include/stdc-predef.h:
 
-include/CommandParser.h:
+src/../include/InstructionToken.h:
 
 include/PCH.h:
 
@@ -1109,5 +1110,3 @@ include/PCH.h:
 /usr/include/c++/9/bits/unordered_set.h:
 
 /usr/include/c++/9/debug/unordered_set:
-
-include/InstructionToken.h:
