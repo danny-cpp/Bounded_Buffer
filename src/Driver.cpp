@@ -1,11 +1,21 @@
 // Precompile header includes utilities required for most projects
-#include <pch.h>
+#include <PCH.h>
 
-
-using namespace std;
+#include "ArgumentCheck.h"
+#include "CommandParser.h"
 
 int main(int argc, char const *argv[]) {
-    cout << "helloWorld" << endl;
+
+    int thread_num;
+    std::string log_ID;
+
+    // Check arg
+    ProdCon::checkArg(argc, argv, thread_num, log_ID);
+
+    Shell379::CommandParser::parse(false);
+
+
+    std::cout << "helloWorld" << std::endl;
 
 	return 0;
 }
