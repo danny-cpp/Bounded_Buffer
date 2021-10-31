@@ -7,8 +7,10 @@
 #include  <PCH.h>
 
 #include "InstructionToken.h"
+#include "BufferedChannel.h"
 
 
+extern std::mutex main_thread_mutex;
 namespace Shell379 {
     class CommandParser {
     public:
@@ -16,10 +18,9 @@ namespace Shell379 {
          * Handle all input parsing and calling the corresponding function call. System calls are NOT
          * implemented here.
          *
-         * @param internal_call if a call is internal, extra information will not be printed
          * @return
          */
-        static int parse(bool &return_eof, std::queue<int> &work_queue);
+        static int parse(std::condition_variable &return_eof, ProdCon::BufferedChannel &work_queue);
 
     private:
 
