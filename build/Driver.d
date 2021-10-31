@@ -305,7 +305,7 @@ build/Driver.o: src/Driver.cpp /usr/include/stdc-predef.h include/PCH.h \
  /usr/include/c++/9/debug/unordered_set include/ArgumentCheck.h \
  include/CommandParser.h include/InstructionToken.h \
  include/BufferedChannel.h include/Scheduler.h include/Utilities.h \
- include/IOManagement.h
+ include/IOManagement.h include/Timing.h
 
 /usr/include/stdc-predef.h:
 
@@ -1124,3 +1124,5 @@ include/Scheduler.h:
 include/Utilities.h:
 
 include/IOManagement.h:
+
+include/Timing.h:

@@ -5,6 +5,7 @@
 #include "InstructionToken.h"
 #include "Utilities.h"
 #include "IOManagement.h"
+#include "Timing.h"
 
 
 extern std::chrono::time_point<std::chrono::system_clock> begin_stamp;

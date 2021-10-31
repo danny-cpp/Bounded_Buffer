@@ -34,7 +34,7 @@ namespace Shell379 {
              * @param previous_stamp time in microsecond
              * @return
              */
-            double stamp(std::chrono::time_point<std::chrono::system_clock> previous_stamp);
+            static double stamp(std::chrono::time_point<std::chrono::system_clock> previous_stamp);
 
             ~totalTiming();
 

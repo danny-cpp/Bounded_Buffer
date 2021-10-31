@@ -32,7 +32,7 @@ int main(int argc, char const *argv[]) {
 
 
     std::thread input_handler([&] {
-    #if DEBUG_MODE
+    #if 0
         std::cout << "Queue capacity is " << task_queue->getCapacity() << std::endl;
     #endif
         // Parse the input. Should be on a different thread

@@ -304,7 +304,7 @@ build/CommandParser.o: src/CommandParser.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/9/unordered_set /usr/include/c++/9/bits/unordered_set.h \
  /usr/include/c++/9/debug/unordered_set include/InstructionToken.h \
  include/BufferedChannel.h include/Scheduler.h include/Utilities.h \
- include/IOManagement.h
+ include/IOManagement.h include/Timing.h
 
 /usr/include/stdc-predef.h:
 
@@ -1121,3 +1121,5 @@ include/Scheduler.h:
 include/Utilities.h:
 
 include/IOManagement.h:
+
+include/Timing.h:

@@ -28,6 +28,8 @@ void ProdCon::Scheduler::start(int n) {
             // Each worker is an infinite loop of its own. Their job is to work. When they are finish,
             // they should signify that they are ready to work again and enter blocking state. Break happen
             // when the program is finished. Which happens when the destructor is called.
+            const int tID = ID;
+            ID++;
             while (true) {
                 ProdCon::InstructionToken token(-1, -1);
 
@@ -36,7 +38,12 @@ void ProdCon::Scheduler::start(int n) {
 
                     // Log block. At this point, the thread is requesting work
                     {
-
+                        std::unique_lock<std::mutex> lk{t};
+                        double stamp = Shell379::Utilities::totalTiming::stamp(begin_stamp) / 1000000;
+                        io_obj->bind();
+                        std::string s = "Ask";
+                        ProdCon::IOManagement::write_list(stamp, tID, -1, s, -1);
+                        io_obj->release();
                     }
 
                     // Entering blocking state until there is some task is ready on the queue or the
@@ -57,15 +64,11 @@ void ProdCon::Scheduler::start(int n) {
                 Task task = [&] {
                     ProdCon::Utilities::Trans(token.getCommandValue());
                     {
-                        std::unique_lock<std::mutex> lock{this->t};
-
-                        auto marker = std::chrono::high_resolution_clock::now();
-                        double stamp = std::chrono::duration<double, std::micro>(marker - begin_stamp).count() / 1000000;
-                        // std::cout << "Time taken " << stamp << " microsecond" << std::endl;
+                        std::unique_lock<std::mutex> lk{t};
+                        double stamp = Shell379::Utilities::totalTiming::stamp(begin_stamp) / 1000000;
                         io_obj->bind();
                         std::string s = "Active";
-                        ProdCon::IOManagement::write_list(stamp, ID, 1, s, 10);
-                        ID++;
+                        ProdCon::IOManagement::write_list(stamp, tID, 1, s, 10);
                         io_obj->release();
                     }
                 };
@@ -97,7 +100,7 @@ void ProdCon::Scheduler::stop() {
 void ProdCon::Scheduler::schedule(ProdCon::InstructionToken const &instruction) {
     if (instruction.getCommandType() == 1) {
         int n = instruction.getCommandValue();
-        #if DEBUG_MODE
+        #if 0
             std::cout << "Entering sleep for " << n << std::endl;
         #endif
         ProdCon::Utilities::Sleep(n);

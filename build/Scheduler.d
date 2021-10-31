@@ -303,7 +303,8 @@ build/Scheduler.o: src/Scheduler.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/9/debug/safe_local_iterator.tcc \
  /usr/include/c++/9/unordered_set /usr/include/c++/9/bits/unordered_set.h \
  /usr/include/c++/9/debug/unordered_set include/BufferedChannel.h \
- include/InstructionToken.h include/Utilities.h include/IOManagement.h
+ include/InstructionToken.h include/Utilities.h include/IOManagement.h \
+ include/Timing.h
 
 /usr/include/stdc-predef.h:
 
@@ -1118,3 +1119,5 @@ include/InstructionToken.h:
 include/Utilities.h:
 
 include/IOManagement.h:
+
+include/Timing.h:
