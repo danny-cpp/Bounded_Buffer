@@ -28,6 +28,14 @@ namespace Shell379 {
              */
             double getElapsedTime();
 
+            /**
+             * Get a time stamp
+             *
+             * @param previous_stamp time in microsecond
+             * @return
+             */
+            double stamp(std::chrono::time_point<std::chrono::system_clock> previous_stamp);
+
             ~totalTiming();
 
         private:
