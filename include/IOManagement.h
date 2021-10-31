@@ -23,7 +23,7 @@ namespace ProdCon {
             std::cout.rdbuf(reset_point);
         }
 
-        static void write(double time_stamp, int ID, int Q_number, std::string &status, int N_number) {
+        static void write_list(double time_stamp, int ID, int Q_number, std::string &status, int N_number) {
             std::cout << std::left << std::setw(6) << std::setfill(' ') << time_stamp;
             std::cout << "ID= ";
             std::cout << std::right << std::setw(2) << std::setfill(' ') << ID;

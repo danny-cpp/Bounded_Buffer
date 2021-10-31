@@ -21,8 +21,8 @@ int main(int argc, char const *argv[]) {
     ProdCon::IOManagement io_manager(log_ID);
     std::string s1 = "Receive";
     std::string s2 = "Ask";
-    ProdCon::IOManagement::write(0.001, 2, 3, s1, 4);
-    ProdCon::IOManagement::write(0.001, 13, 22, s2, 99);
+    ProdCon::IOManagement::write_list(0.001, 2, 3, s1, 4);
+    ProdCon::IOManagement::write_list(0.001, 13, 22, s2, 99);
     io_manager.release();
 
     // Task queue capacity is 2x the issued thread number.
@@ -34,8 +34,6 @@ int main(int argc, char const *argv[]) {
     #endif
         // Parse the input. Should be on a different thread
         Shell379::CommandParser::parse(exit_status, task_queue);
-
-        // std::this_thread::sleep_for(std::chrono::seconds(2));
     });
 
 
