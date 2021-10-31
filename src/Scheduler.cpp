@@ -1,10 +1,12 @@
 #include "Scheduler.h"
 
 
-ProdCon::Scheduler::Scheduler(ProdCon::BufferedChannel *queue, int thread_num) {
+ProdCon::Scheduler::Scheduler(ProdCon::BufferedChannel *queue, int thread_num, ProdCon::IOManagement &io_obj) {
     task_queue = queue;
     num_thread = thread_num;
     done = false;
+    this->io_obj = &io_obj;
+    begin_stamp = std::chrono::high_resolution_clock::now();
 
     start(thread_num);
 }
@@ -17,14 +19,14 @@ void ProdCon::Scheduler::start(int n) {
 
     // Thread pooling. We create std::thread that are workers, and store their reference in a vector
     // for synchronization.
+    int ID = 0;
     for (int i = 0; i < num_thread; ++i) {
         thread_array.emplace_back([&] {
             // Each worker is an infinite loop of its own. Their job is to work. When they are finish,
             // they should signify that they are ready to work again and enter blocking state. Break happen
             // when the program is finished. Which happens when the destructor is called.
             while (true) {
-
-                ProdCon::InstructionToken t(-1, -1);
+                ProdCon::InstructionToken token(-1, -1);
 
                 {
                     std::unique_lock<std::mutex> lock{m};
@@ -40,12 +42,24 @@ void ProdCon::Scheduler::start(int n) {
                         break;
                     }
 
-                    t = task_queue->front();
+                    token = task_queue->front();
                     task_queue->pop();
                 }
 
                 Task task = [&] {
-                    ProdCon::Utilities::Trans(t.getCommandValue());
+                    ProdCon::Utilities::Trans(token.getCommandValue());
+                    {
+                        std::unique_lock<std::mutex> lock{this->t};
+                        std::cout << std::fixed;
+                        std::cout << std::setprecision(3);
+                        auto marker = std::chrono::high_resolution_clock::now();
+                        double stamp = std::chrono::duration<double, std::micro>(marker - begin_stamp).count() / 1000000;
+                        // std::cout << "Time taken " << stamp << " microsecond" << std::endl;
+                        io_obj->bind();
+                        std::string s = "Active";
+                        ProdCon::IOManagement::write_list(stamp, 1, 1, s, 10);
+                        io_obj->release();
+                    }
                 };
 
                 task();
@@ -82,7 +96,7 @@ void ProdCon::Scheduler::schedule(ProdCon::InstructionToken const &instruction) 
     }
     else if (instruction.getCommandType() == 0) {
         int n = instruction.getCommandValue();
-        #if DEBUG_MODE
+        #if 0
             std::cout << "Entering trans for " << n << std::endl;
         #endif
 

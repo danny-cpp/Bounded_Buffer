@@ -8,6 +8,7 @@
 #include "Scheduler.h"
 
 
+std::chrono::time_point<std::chrono::system_clock> begin_stamp;
 int main(int argc, char const *argv[]) {
 
     int thread_num;                         // User defined thread spawn
@@ -27,7 +28,7 @@ int main(int argc, char const *argv[]) {
     // Task queue capacity is 2x the issued thread number.
     auto *task_queue = new ProdCon::BufferedChannel(thread_num * 2);
 
-    ProdCon::Scheduler scheduler(task_queue, thread_num);
+    ProdCon::Scheduler scheduler(task_queue, thread_num, io_manager);
 
 
     std::thread input_handler([&] {

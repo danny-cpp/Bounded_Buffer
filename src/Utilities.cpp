@@ -27,7 +27,7 @@ void ProdCon::Utilities::Trans( int n ) {
     TransSave += j;
     TransSave &= 0xff;
 
-    #if DEBUG_MODE
+    #if 0
         std::cout << "Trans complete" << std::endl;
     #endif
 }
