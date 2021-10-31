@@ -40,7 +40,8 @@ void ProdCon::Scheduler::start(int n) {
                         break;
                     }
 
-                    t = task_queue->pop_front();
+                    t = task_queue->front();
+                    task_queue->pop();
                 }
 
                 Task task = [=] {
@@ -85,8 +86,13 @@ void ProdCon::Scheduler::schedule(ProdCon::InstructionToken const &instruction) 
             std::cout << "Entering trans for " << n << std::endl;
         #endif
 
-        std::unique_lock<std::mutex> lock{m};
+        // std::unique_lock<std::mutex> lock{m};
         while (!task_queue->try_push(instruction)) {
+
+            #if DEBUG_MODE
+                    std::cout << "queue is full, current waiting is  " << task_queue->getCount() << std::endl;
+            #endif
+
             std::this_thread::sleep_for(std::chrono::seconds(1));
         }
     }

@@ -23,7 +23,7 @@ void ProdCon::BufferedChannel::add(ProdCon::InstructionToken item) {
     not_empty_cvar.notify_all();
 }
 
-ProdCon::InstructionToken ProdCon::BufferedChannel::pop_front() {
+bool ProdCon::BufferedChannel::pop() {
     std::unique_lock<std::mutex> lock{m};
 
     // If the queue is empty, wait.
@@ -34,15 +34,24 @@ ProdCon::InstructionToken ProdCon::BufferedChannel::pop_front() {
         not_empty_cvar.wait(lock);
     }
 
-    auto pop_value = internal_queue.front();
+
     internal_queue.pop_front();
-    count--;
+    count -= 1;
 
     m.unlock();
     not_full_cvar.notify_all();
 
-    return pop_value;
+    return true;
 }
+
+
+ProdCon::InstructionToken ProdCon::BufferedChannel::front() {
+    if (internal_queue.empty()) {
+        return {-1, -1};
+    }
+    return internal_queue.front();
+}
+
 
 void ProdCon::BufferedChannel::printAll() {
     std::unique_lock<std::mutex> lock{m};
@@ -101,4 +110,6 @@ bool ProdCon::BufferedChannel::try_push(ProdCon::InstructionToken item) {
 
     return true;
 }
+
+
 

@@ -42,10 +42,16 @@ namespace ProdCon {
          * WARNING: POSSIBLE DEADLOCK!!! If there are no actions to release
          * the channel, deadlock will occur!
          *
-         * @return item at the front of the queue
+         * @return status
          */
-        ProdCon::InstructionToken pop_front();
+        bool pop();
 
+        /**
+         * Return the first item in the queue
+         *
+         * @return
+         */
+        ProdCon::InstructionToken front();
 
         /**
          * Print all of its content as a list to stdout
