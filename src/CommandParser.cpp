@@ -7,7 +7,7 @@ int Shell379::CommandParser::parse(std::condition_variable &return_eof, ProdCon:
     std::string s;
     while(!std::cin.eof()) {
         getline(std::cin, s);
-        std::cout << s << std::endl;
+        // std::cout << s << std::endl;
 
         ProdCon::InstructionToken i(s);
         scheduler.schedule(i);

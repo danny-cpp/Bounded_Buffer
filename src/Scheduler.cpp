@@ -37,14 +37,8 @@ void ProdCon::Scheduler::start(int n) {
                     std::unique_lock<std::mutex> lock{m};
 
                     // Log block. At this point, the thread is requesting work
-                    {
-                        std::unique_lock<std::mutex> lk{t};
-                        double stamp = Shell379::Utilities::totalTiming::stamp(begin_stamp) / 1000000;
-                        io_obj->bind();
-                        std::string s = "Ask";
-                        ProdCon::IOManagement::write_list(stamp, tID, -1, s, -1);
-                        io_obj->release();
-                    }
+                    io_obj->record(t, tID, -1, "Ask", -1);
+
 
                     // Entering blocking state until there is some task is ready on the queue or the
                     // program is finished
@@ -58,19 +52,22 @@ void ProdCon::Scheduler::start(int n) {
                     }
 
                     token = task_queue->front();
+
+                    // This is when the thread received the work
+                    int q_number = task_queue->getCount();
+                    int n_number = token.getCommandValue();
+                    io_obj->record(t, tID, q_number, "Receive", n_number);
+
+
                     task_queue->pop();
                 }
 
                 Task task = [&] {
                     ProdCon::Utilities::Trans(token.getCommandValue());
-                    {
-                        std::unique_lock<std::mutex> lk{t};
-                        double stamp = Shell379::Utilities::totalTiming::stamp(begin_stamp) / 1000000;
-                        io_obj->bind();
-                        std::string s = "Active";
-                        ProdCon::IOManagement::write_list(stamp, tID, 1, s, 10);
-                        io_obj->release();
-                    }
+
+                    // Completed log
+                    int n_number = token.getCommandValue();
+                    io_obj->record(t, tID, 1, "Complete", n_number);
                 };
 
                 task();
