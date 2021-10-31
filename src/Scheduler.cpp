@@ -14,4 +14,11 @@ void ProdCon::Scheduler::schedule(ProdCon::InstructionToken const &instruction) 
         #endif
         ProdCon::Utilities::Sleep(n);
     }
+    else if (instruction.getCommandType() == 0) {
+        int n = instruction.getCommandValue();
+        #if DEBUG_MODE
+            std::cout << "Entering trans for " << n << std::endl;
+        #endif
+        ProdCon::Utilities::Trans(n);
+    }
 }
