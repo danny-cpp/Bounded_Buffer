@@ -69,7 +69,16 @@ int ProdCon::BufferedChannel::getCapacity() {
 }
 
 bool ProdCon::BufferedChannel::isEmpty() {
-    if (getCount() == 0) {
+    std::unique_lock<std::mutex> lock{m};
+    if (count == 0) {
+        return true;
+    }
+    return false;
+}
+
+bool ProdCon::BufferedChannel::isFull() {
+    std::unique_lock<std::mutex> lock{m};
+    if (count == capacity) {
         return true;
     }
     return false;
