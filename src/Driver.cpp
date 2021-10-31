@@ -42,35 +42,6 @@ int main(int argc, char const *argv[]) {
         std::cout << "Main thread has come to completion" << std::endl;
     #endif
 
-    // ProdCon::BufferedChannel channel(3);
-    //
-    //
-    // auto task = [&] {
-    //     std::string s;
-    //     std::this_thread::sleep_for(std::chrono::seconds(1));
-    //     for (int i = 0; i < 6; ++i) {
-    //         std::this_thread::sleep_for(std::chrono::seconds(2));
-    //         std::cout << "Trying to pop, current queue is: ";
-    //         channel.printAll();
-    //         std::cout << std::endl;
-    //
-    //         channel.pop_front();
-    //     }
-    // };
-    // std::thread t1(task);
-    //
-    // for (int i = 0; i < 4; ++i) {
-    //     ProdCon::InstructionToken t(1, 2);
-    //     std::cout << "Trying to push, current queue is: ";
-    //     channel.printAll();
-    //     std::cout << std::endl;
-    //
-    //     channel.add(t);
-    //     std::this_thread::sleep_for(std::chrono::seconds(1));
-    //
-    // }
-    //
-    // std::cout << "Main thread has come to completion" << std::endl;
 
 	return 0;
 }
