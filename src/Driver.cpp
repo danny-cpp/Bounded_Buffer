@@ -25,17 +25,17 @@ int main(int argc, char const *argv[]) {
 
 
     // Task queue capacity is 2x the issued thread number.
-    ProdCon::BufferedChannel task_queue(thread_num * 2);
+    auto *task_queue = new ProdCon::BufferedChannel(thread_num * 2);
 
-    ProdCon::Scheduler scheduler(&task_queue, thread_num);
+    ProdCon::Scheduler scheduler(task_queue, thread_num);
 
 
     std::thread input_handler([&] {
     #if DEBUG_MODE
-        std::cout << "Queue capacity is " << task_queue.getCapacity() << std::endl;
+        std::cout << "Queue capacity is " << task_queue->getCapacity() << std::endl;
     #endif
         // Parse the input. Should be on a different thread
-        Shell379::CommandParser::parse(exit_status, task_queue, scheduler);
+        Shell379::CommandParser::parse(exit_status, *task_queue, scheduler);
     });
 
 

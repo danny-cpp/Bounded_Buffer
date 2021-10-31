@@ -18,7 +18,7 @@ void ProdCon::Scheduler::start(int n) {
     // Thread pooling. We create std::thread that are workers, and store their reference in a vector
     // for synchronization.
     for (int i = 0; i < num_thread; ++i) {
-        thread_array.emplace_back([=] {
+        thread_array.emplace_back([&] {
             // Each worker is an infinite loop of its own. Their job is to work. When they are finish,
             // they should signify that they are ready to work again and enter blocking state. Break happen
             // when the program is finished. Which happens when the destructor is called.
@@ -31,7 +31,7 @@ void ProdCon::Scheduler::start(int n) {
 
                     // Entering blocking state until there is some task is ready on the queue or the
                     // program is finished
-                    cv.wait(lock, [=] {
+                    cv.wait(lock, [&] {
                         return done || !task_queue->isEmpty();
                     });
 
@@ -44,7 +44,7 @@ void ProdCon::Scheduler::start(int n) {
                     task_queue->pop();
                 }
 
-                Task task = [=] {
+                Task task = [&] {
                     ProdCon::Utilities::Trans(t.getCommandValue());
                 };
 
@@ -87,14 +87,16 @@ void ProdCon::Scheduler::schedule(ProdCon::InstructionToken const &instruction) 
         #endif
 
         // std::unique_lock<std::mutex> lock{m};
-        while (!task_queue->try_push(instruction)) {
+        // while (!task_queue->try_push(instruction)) {
+        //
+        //     #if DEBUG_MODE
+        //             std::cout << "queue is full, current waiting is  " << task_queue->getCount() << std::endl;
+        //     #endif
+        //
+        //     std::this_thread::sleep_for(std::chrono::seconds(1));
+        // }
 
-            #if DEBUG_MODE
-                    std::cout << "queue is full, current waiting is  " << task_queue->getCount() << std::endl;
-            #endif
-
-            std::this_thread::sleep_for(std::chrono::seconds(1));
-        }
+        task_queue->add(instruction);
     }
 }
 
