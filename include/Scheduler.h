@@ -10,7 +10,11 @@ namespace ProdCon {
     class Scheduler {
     public:
 
+        using Task = std::function<void()>;
+
         Scheduler(ProdCon::BufferedChannel *queue, int thread_num);
+
+        ~Scheduler();
 
         void schedule(ProdCon::InstructionToken const &instruction);
 
@@ -18,8 +22,15 @@ namespace ProdCon {
         ProdCon::BufferedChannel *task_queue;
         int num_thread;
 
-        // std::condition_variable cv;
-        // std::mutex m;
-        // bool stopping;
+        std::vector<std::thread> thread_array;
+
+        void start(int n);
+
+        void stop();
+
+
+        std::condition_variable cv;
+        std::mutex m;
+        bool done;
     };
 }

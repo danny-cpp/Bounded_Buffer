@@ -66,6 +66,13 @@ namespace ProdCon {
          */
         int getCapacity();
 
+        /**
+         * Return true if it is empty
+         *
+         * @return
+         */
+        bool isEmpty();
+
     private:
         std::deque<ProdCon::InstructionToken> internal_queue;
         std::condition_variable not_full_cvar;

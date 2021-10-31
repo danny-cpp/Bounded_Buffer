@@ -3,7 +3,6 @@
 
 #include "ArgumentCheck.h"
 #include "CommandParser.h"
-#include "InstructionToken.h"
 #include "BufferedChannel.h"
 #include "IOManagement.h"
 #include "Scheduler.h"

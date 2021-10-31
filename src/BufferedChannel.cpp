@@ -59,10 +59,19 @@ void ProdCon::BufferedChannel::printAll() {
 }
 
 int ProdCon::BufferedChannel::getCount() {
+    std::unique_lock<std::mutex> lock{m};
     return count;
 }
 
 int ProdCon::BufferedChannel::getCapacity() {
+    std::unique_lock<std::mutex> lock{m};
     return capacity;
+}
+
+bool ProdCon::BufferedChannel::isEmpty() {
+    if (getCount() == 0) {
+        return true;
+    }
+    return false;
 }
 
