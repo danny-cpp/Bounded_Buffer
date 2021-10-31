@@ -84,3 +84,21 @@ bool ProdCon::BufferedChannel::isFull() {
     return false;
 }
 
+bool ProdCon::BufferedChannel::try_push(ProdCon::InstructionToken item) {
+    std::unique_lock<std::mutex> lock{m};
+
+    if (count == capacity) {
+        return false;
+    }
+
+    internal_queue.emplace_back(item);
+    count++;
+    lock.unlock();
+
+    // Notify all that are waiting on an empty channel. This will
+    // resume the read blocking
+    not_empty_cvar.notify_all();
+
+    return true;
+}
+

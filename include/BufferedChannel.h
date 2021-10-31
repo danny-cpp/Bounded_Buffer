@@ -80,6 +80,8 @@ namespace ProdCon {
          */
         bool isFull();
 
+        bool try_push(ProdCon::InstructionToken item);
+
     private:
         std::deque<ProdCon::InstructionToken> internal_queue;
         std::condition_variable not_full_cvar;
