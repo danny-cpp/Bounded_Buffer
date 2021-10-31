@@ -85,7 +85,10 @@ void ProdCon::Scheduler::schedule(ProdCon::InstructionToken const &instruction) 
             std::cout << "Entering trans for " << n << std::endl;
         #endif
 
-        task_queue->add(instruction);
+        std::unique_lock<std::mutex> lock{m};
+        while (!task_queue->try_push(instruction)) {
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+        }
     }
 }
 
