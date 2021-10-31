@@ -16,6 +16,8 @@ namespace ProdCon {
         int getCommandType() const;
         int getCommandValue() const;
 
+        friend std::ostream &operator<<(std::ostream &os, const InstructionToken &instruction);
+
     private:
         int command_type;
         int command_value;

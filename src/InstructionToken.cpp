@@ -13,3 +13,14 @@ int ProdCon::InstructionToken::getCommandType() const {
 int ProdCon::InstructionToken::getCommandValue() const {
     return command_value;
 }
+
+namespace ProdCon {
+    std::ostream &operator<<(std::ostream &os, const ProdCon::InstructionToken &instruction) {
+        if (instruction.getCommandType() == 0) {
+            os << "Trans" << instruction.getCommandValue();
+        } else {
+            os << "Sleep" << instruction.getCommandValue();
+        }
+        return os;
+    }
+}
