@@ -7,6 +7,9 @@ void ProdCon::BufferedChannel::add(ProdCon::InstructionToken item) {
 
     // If it is full then blocking occurs
     while (count == capacity) {
+#if DEBUG_MODE
+        std::cout << "Write is blocked, buffer is full" << std::endl;
+#endif
         not_empty_cvar.wait(lock);
     }
 
@@ -23,7 +26,11 @@ void ProdCon::BufferedChannel::add(ProdCon::InstructionToken item) {
 ProdCon::InstructionToken ProdCon::BufferedChannel::pop_front() {
     std::unique_lock<std::mutex> lock{m};
 
-    if (internal_queue.empty()) {
+    // If the queue is empty, wait.
+    while (internal_queue.empty()) {
+#if DEBUG_MODE
+        std::cout << "Read is blocked, buffer is empty" << std::endl;
+#endif
         not_empty_cvar.wait(lock);
     }
 
@@ -40,9 +47,22 @@ ProdCon::InstructionToken ProdCon::BufferedChannel::pop_front() {
 void ProdCon::BufferedChannel::printAll() {
     std::unique_lock<std::mutex> lock{m};
 
+    if (internal_queue.empty()) {
+        std::cout << "empty" << std::endl;
+        return;
+    }
+
     for (auto const &item : internal_queue) {
         std::cout << item << " ";
     }
     std::cout << std::endl;
+}
+
+int ProdCon::BufferedChannel::getCount() {
+    return count;
+}
+
+int ProdCon::BufferedChannel::getCapacity() {
+    return capacity;
 }
 

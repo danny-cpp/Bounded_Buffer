@@ -52,6 +52,20 @@ namespace ProdCon {
          */
         void printAll();
 
+        /**
+         * Current item count in the channel
+         *
+         * @return
+         */
+        int getCount();
+
+        /**
+         * Capacity of the channel
+         *
+         * @return
+         */
+        int getCapacity();
+
     private:
         std::deque<ProdCon::InstructionToken> internal_queue;
         std::condition_variable not_full_cvar;
