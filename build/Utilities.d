@@ -1,5 +1,5 @@
 build/Utilities.o: src/Utilities.cpp /usr/include/stdc-predef.h \
- src/../include/Utilities.h /usr/include/stdio.h \
+ include/Utilities.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -38,7 +38,7 @@ build/Utilities.o: src/Utilities.cpp /usr/include/stdc-predef.h \
 
 /usr/include/stdc-predef.h:
 
-src/../include/Utilities.h:
+include/Utilities.h:
 
 /usr/include/stdio.h:
 

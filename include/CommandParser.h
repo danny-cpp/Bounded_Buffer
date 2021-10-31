@@ -8,9 +8,9 @@
 
 #include "InstructionToken.h"
 #include "BufferedChannel.h"
+#include "Scheduler.h"
 
 
-extern std::mutex main_thread_mutex;
 namespace Shell379 {
     class CommandParser {
     public:
@@ -20,7 +20,8 @@ namespace Shell379 {
          *
          * @return
          */
-        static int parse(std::condition_variable &return_eof, ProdCon::BufferedChannel &work_queue);
+        static int parse(std::condition_variable &return_eof, ProdCon::BufferedChannel &work_queue,
+                         ProdCon::Scheduler &scheduler);
 
     private:
 

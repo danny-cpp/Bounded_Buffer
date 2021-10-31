@@ -11,6 +11,7 @@ namespace ProdCon {
      *
      */
     class Utilities {
+    public:
         /**
          * Simulate a long processing routine
          *

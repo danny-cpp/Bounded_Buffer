@@ -1,5 +1,5 @@
-build/Driver.o: src/Driver.cpp /usr/include/stdc-predef.h include/PCH.h \
- /usr/include/c++/9/cstdio \
+build/Scheduler.o: src/Scheduler.cpp /usr/include/stdc-predef.h \
+ include/Scheduler.h include/PCH.h /usr/include/c++/9/cstdio \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -302,12 +302,12 @@ build/Driver.o: src/Driver.cpp /usr/include/stdc-predef.h include/PCH.h \
  /usr/include/c++/9/debug/safe_local_iterator.h \
  /usr/include/c++/9/debug/safe_local_iterator.tcc \
  /usr/include/c++/9/unordered_set /usr/include/c++/9/bits/unordered_set.h \
- /usr/include/c++/9/debug/unordered_set include/ArgumentCheck.h \
- include/CommandParser.h include/InstructionToken.h \
- include/BufferedChannel.h include/Scheduler.h include/Utilities.h \
- include/IOManagement.h
+ /usr/include/c++/9/debug/unordered_set include/BufferedChannel.h \
+ include/InstructionToken.h include/Utilities.h
 
 /usr/include/stdc-predef.h:
+
+include/Scheduler.h:
 
 include/PCH.h:
 
@@ -1111,16 +1111,8 @@ include/PCH.h:
 
 /usr/include/c++/9/debug/unordered_set:
 
-include/ArgumentCheck.h:
-
-include/CommandParser.h:
+include/BufferedChannel.h:
 
 include/InstructionToken.h:
 
-include/BufferedChannel.h:
-
-include/Scheduler.h:
-
 include/Utilities.h:
-
-include/IOManagement.h:

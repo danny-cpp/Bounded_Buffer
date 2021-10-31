@@ -16,7 +16,7 @@
 
 int TransSave = 0;
 
-void Trans( int n ) {
+void ProdCon::Utilities::Trans( int n ) {
     long i, j;
 
     // Use CPU cycles
@@ -35,7 +35,7 @@ void Trans( int n ) {
 #include <stdio.h>
 #include <time.h>
 
-void Sleep( int n ) {
+void ProdCon::Utilities::Sleep( int n ) {
     struct timespec sleep;
 
     // Make sure pass a valid nanosecond time to nanosleep

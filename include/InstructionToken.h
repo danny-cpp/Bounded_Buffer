@@ -13,6 +13,7 @@ namespace ProdCon {
     class InstructionToken {
     public:
         InstructionToken(int command_type, int command_value);
+        InstructionToken(std::string inp_string);
         int getCommandType() const;
         int getCommandValue() const;
 
