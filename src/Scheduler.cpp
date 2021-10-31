@@ -1,6 +1,7 @@
 #include "Scheduler.h"
 
 
+static int ID = 1;
 ProdCon::Scheduler::Scheduler(ProdCon::BufferedChannel *queue, int thread_num, ProdCon::IOManagement &io_obj) {
     task_queue = queue;
     num_thread = thread_num;
@@ -17,9 +18,11 @@ ProdCon::Scheduler::~Scheduler() {
 
 void ProdCon::Scheduler::start(int n) {
 
+    std::cout << std::fixed;
+    std::cout << std::setprecision(3);
+
     // Thread pooling. We create std::thread that are workers, and store their reference in a vector
     // for synchronization.
-    int ID = 0;
     for (int i = 0; i < num_thread; ++i) {
         thread_array.emplace_back([&] {
             // Each worker is an infinite loop of its own. Their job is to work. When they are finish,
@@ -30,6 +33,11 @@ void ProdCon::Scheduler::start(int n) {
 
                 {
                     std::unique_lock<std::mutex> lock{m};
+
+                    // Log block. At this point, the thread is requesting work
+                    {
+
+                    }
 
                     // Entering blocking state until there is some task is ready on the queue or the
                     // program is finished
@@ -50,14 +58,14 @@ void ProdCon::Scheduler::start(int n) {
                     ProdCon::Utilities::Trans(token.getCommandValue());
                     {
                         std::unique_lock<std::mutex> lock{this->t};
-                        std::cout << std::fixed;
-                        std::cout << std::setprecision(3);
+
                         auto marker = std::chrono::high_resolution_clock::now();
                         double stamp = std::chrono::duration<double, std::micro>(marker - begin_stamp).count() / 1000000;
                         // std::cout << "Time taken " << stamp << " microsecond" << std::endl;
                         io_obj->bind();
                         std::string s = "Active";
-                        ProdCon::IOManagement::write_list(stamp, 1, 1, s, 10);
+                        ProdCon::IOManagement::write_list(stamp, ID, 1, s, 10);
+                        ID++;
                         io_obj->release();
                     }
                 };

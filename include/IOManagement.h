@@ -27,11 +27,22 @@ namespace ProdCon {
             std::cout << std::left << std::setw(6) << std::setfill(' ') << time_stamp;
             std::cout << "ID= ";
             std::cout << std::right << std::setw(2) << std::setfill(' ') << ID;
-            std::cout << " Q= ";
-            std::cout << std::right << std::setw(3) << std::setfill(' ') << Q_number;
+            if (Q_number != -1) {
+                std::cout << " Q= ";
+                std::cout << std::right << std::setw(3) << std::setfill(' ') << Q_number;
+            }
+            else {
+                std::cout << "    ";
+                std::cout << std::right << std::setw(3) << std::setfill(' ') << ' ';
+            }
             std::cout << " ";
             std::cout << std::left << std::setw(11) << std::setfill(' ') << status;
-            std::cout << std::right << std::setw(3) << std::setfill(' ') << N_number;
+            if (N_number != -1) {
+                std::cout << std::right << std::setw(3) << std::setfill(' ') << N_number;
+            }
+            else {
+                std::cout << std::right << std::setw(3) << std::setfill(' ') << ' ';
+            }
             std::cout << std::endl;
         }
 
