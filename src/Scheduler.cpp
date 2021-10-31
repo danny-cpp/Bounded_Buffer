@@ -19,6 +19,10 @@ void ProdCon::Scheduler::schedule(ProdCon::InstructionToken const &instruction) 
         #if DEBUG_MODE
             std::cout << "Entering trans for " << n << std::endl;
         #endif
-        ProdCon::Utilities::Trans(n);
+
+        std::thread t([&] {
+            ProdCon::Utilities::Trans(n);
+        });
+        t.join();
     }
 }
