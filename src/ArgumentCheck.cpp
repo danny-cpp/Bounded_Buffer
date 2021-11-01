@@ -15,16 +15,22 @@ void ProdCon::ArgumentCheck::checkArg(int &argc, char const *argv[], int &return
         exit(-1);
     }
 
-    if (argc == 3) {
-        ID = argv[2];
-    }
-
-    if (ID != "0") {
-        return_log_ID = "prodcon." + ID + ".log";
-    }
-    else {
+    if (argc == 2) {
         return_log_ID = "prodcon.log";
     }
+    if (argc == 3) {
+        ID = argv[2];
+        return_log_ID = "prodcon." + ID + ".log";
+    }
+
+
+    // if () {
+    //     return_log_ID = "prodcon." + ID + ".log";
+    // }
+    // else {
+    //     return_log_ID = "prodcon.log";
+    // }
+
     return_thread_num = std::stoi(argv[1]);
 
     if (return_thread_num < 1) {

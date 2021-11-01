@@ -8,6 +8,8 @@
 namespace ProdCon {
 
     /**
+     * !!! DEPRECATED!
+     *
      * Bounded Buffered, a.k.a Finite multithreading queue. Queue and deque can be done concurrently with mutex
      * protection. Write blocking occur when queue is full. Read blocking occur when queue is empty.
      *

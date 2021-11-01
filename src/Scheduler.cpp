@@ -149,9 +149,9 @@ void ProdCon::Scheduler::schedule(ProdCon::InstructionToken const &instruction) 
         {
             std::unique_lock<std::mutex> lock{m};
 
-            while (task_queue->size() >= num_thread*2) {
+            while ((int)task_queue->size() >= num_thread*2) {
                 not_full.wait(lock, [=] {
-                    return (task_queue->size()) < num_thread*2;
+                    return ((int)task_queue->size()) < num_thread*2;
                 });
             }
 
