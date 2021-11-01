@@ -39,8 +39,13 @@ void ProdCon::Scheduler::start(int n) {
                 {
                     std::unique_lock<std::mutex> lock{m};
 
-                    // Log block. At this point, the thread is requesting work
+                    // Log block. At this point, the thread is asking for work
                     io_obj->record(t, tID, -1, "Ask", -1);
+
+                    {
+                        std::unique_lock<std::mutex> lck{s};
+                        summary_ptr->at(1) += 1;
+                    }
 
 
                     // Entering blocking state until there is some task is ready on the queue or the
@@ -60,6 +65,10 @@ void ProdCon::Scheduler::start(int n) {
                     int q_number = task_queue->getCount();
                     int n_number = token.getCommandValue();
                     io_obj->record(t, tID, q_number, "Receive", n_number);
+                    {
+                        std::unique_lock<std::mutex> lck{s};
+                        summary_ptr->at(2) += 1;
+                    }
 
 
                     task_queue->pop();
@@ -71,6 +80,10 @@ void ProdCon::Scheduler::start(int n) {
                     // Completed log
                     int n_number = token.getCommandValue();
                     io_obj->record(t, tID, -1, "Complete", n_number);
+                    {
+                        std::unique_lock<std::mutex> lck{s};
+                        summary_ptr->at(3) += 1;
+                    }
                 };
 
                 task();
@@ -97,6 +110,7 @@ void ProdCon::Scheduler::stop() {
     for (auto &item : thread_array) {
         item.join();
     }
+
 }
 
 
@@ -111,6 +125,10 @@ void ProdCon::Scheduler::schedule(ProdCon::InstructionToken const &instruction) 
         // Log sleep
         int n_number = instruction.getCommandValue();
         io_obj->record(t, 0, -1, "Sleep", n_number);
+        {
+            std::unique_lock<std::mutex> lck{s};
+            summary_ptr->at(4) += 1;
+        }
     }
     else if (instruction.getCommandType() == 0) {
         #if 0
@@ -119,7 +137,10 @@ void ProdCon::Scheduler::schedule(ProdCon::InstructionToken const &instruction) 
 
         task_queue->add(instruction);
         // A task will be counted toward the summary
-        summary_ptr->at(0) += 1;
+        {
+            std::unique_lock<std::mutex> lck{s};
+            summary_ptr->at(0) += 1;
+        }
 
         // Log task enqueue
         int q_number = task_queue->getCount();

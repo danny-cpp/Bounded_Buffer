@@ -1,7 +1,7 @@
 #include <CommandParser.h>
 
 
-int Shell379::CommandParser::parse(std::condition_variable &return_eof, ProdCon::BufferedChannel &work_queue,
+int Shell379::CommandParser::parse(bool &return_eof, ProdCon::BufferedChannel &work_queue,
                                    ProdCon::Scheduler &scheduler) {
 
     std::string s;
@@ -12,7 +12,7 @@ int Shell379::CommandParser::parse(std::condition_variable &return_eof, ProdCon:
         ProdCon::InstructionToken i(s);
         scheduler.schedule(i);
     }
-    return_eof.notify_all();
+    return_eof = true;
 
     return 0;
 }

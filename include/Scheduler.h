@@ -31,8 +31,9 @@ namespace ProdCon {
         int num_thread;
         std::vector<std::thread> thread_array;
         std::condition_variable cv;
-        std::mutex m;
-        std::mutex t;
+        std::mutex m;       // Mutex between threads (modify task queue)
+        std::mutex t;       // Mutex between record log (write file)
+        std::mutex s;       // Mutex between summary record (write vector)
         bool done;
         ProdCon::IOManagement *io_obj;
         std::vector<int>* summary_ptr;

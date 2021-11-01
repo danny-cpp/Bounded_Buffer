@@ -2,23 +2,23 @@
 0.000 ID=  1      Ask           
 0.000 ID=  2      Ask           
 0.000 ID=  3      Ask           
-0.001 ID=  4      Ask           
-0.001 ID=  4 Q= 1 Receive      4
+0.001 ID=  3 Q= 1 Receive      4
 0.001 ID=  0 Q= 1 Work         4
 0.001 ID=  0 Q= 1 Work         2
 0.001 ID=  0 Q= 2 Work         1
 0.001 ID=  0 Q= 3 Work         1
-0.003 ID=  4      Complete     4
+0.001 ID=  4      Ask           
+0.001 ID=  4 Q= 3 Receive      2
+0.003 ID=  4      Complete     2
 0.003 ID=  4      Ask           
-0.004 ID=  4 Q= 3 Receive      2
-0.005 ID=  4      Complete     2
-0.005 ID=  4      Ask           
-0.005 ID=  4 Q= 2 Receive      1
-0.006 ID=  4      Complete     1
-0.006 ID=  4      Ask           
-0.006 ID=  4 Q= 1 Receive      1
-0.007 ID=  4      Complete     1
-0.007 ID=  4      Ask           
+0.003 ID=  4 Q= 2 Receive      1
+0.003 ID=  3      Complete     4
+0.003 ID=  3      Ask           
+0.004 ID=  3 Q= 1 Receive      1
+0.004 ID=  4      Complete     1
+0.004 ID=  4      Ask           
+0.004 ID=  3      Complete     1
+0.004 ID=  3      Ask           
 0.091 ID=  0      Sleep        9
 0.092 ID=  0 Q= 1 Work         5
 0.102 ID=  0      Sleep        1
@@ -26,15 +26,15 @@
 0.102 ID=  0 Q= 3 Work         1
 0.102 ID=  0 Q= 4 Work         1
 0.102 ID=  0      End           
-0.103 ID=  1 Q= 4 Receive      5
+0.102 ID=  1 Q= 4 Receive      5
 0.103 ID=  2 Q= 3 Receive      1
-0.103 ID=  3 Q= 2 Receive      1
-0.103 ID=  4 Q= 1 Receive      1
+0.103 ID=  4 Q= 2 Receive      1
+0.103 ID=  3 Q= 1 Receive      1
 0.103 ID=  2      Complete     1
-0.104 ID=  2      Ask           
-0.104 ID=  3      Complete     1
-0.104 ID=  3      Ask           
+0.103 ID=  2      Ask           
 0.104 ID=  4      Complete     1
 0.104 ID=  4      Ask           
+0.104 ID=  3      Complete     1
+0.104 ID=  3      Ask           
 0.106 ID=  1      Complete     5
 0.106 ID=  1      Ask           

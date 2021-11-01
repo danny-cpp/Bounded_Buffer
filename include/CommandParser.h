@@ -20,7 +20,7 @@ namespace Shell379 {
          *
          * @return
          */
-        static int parse(std::condition_variable &return_eof, ProdCon::BufferedChannel &work_queue,
+        static int parse(bool &return_eof, ProdCon::BufferedChannel &work_queue,
                          ProdCon::Scheduler &scheduler);
 
     private:

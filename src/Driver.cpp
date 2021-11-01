@@ -13,7 +13,7 @@ int main(int argc, char const *argv[]) {
 
     int thread_num;                         // User defined thread spawn
     std::string log_ID;                     // Log file name with format prodcon.XX.log
-    std::condition_variable exit_status;    // status of input complete. Result from an EOF signal
+    bool exit_status;    // status of input complete. Result from an EOF signal
     std::vector<int> summary;               // Vector stores summary data to be reported
 
     // Check arg as per specification.
@@ -32,6 +32,7 @@ int main(int argc, char const *argv[]) {
 
 
     std::thread input_handler([&] {
+
     #if 0
         std::cout << "Queue capacity is " << task_queue->getCapacity() << std::endl;
     #endif
@@ -41,12 +42,8 @@ int main(int argc, char const *argv[]) {
 
 
     input_handler.join();
-    #if DEBUG_MODE
-        std::cout << "Main thread has come to completion" << std::endl;
-    #endif
-
     std::cout << "Summary stat:" << std::endl;
-    for (const auto &item : summary) {
+    for (const auto &item: summary) {
         std::cout << item << std::endl;
     }
 
