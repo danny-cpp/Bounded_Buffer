@@ -17,7 +17,7 @@ TARGET	:= bin/$(PRJNAME)
 # which contains rules for headers
 CFLAGS := -std=c++11 -MP -MD -pthread
 DEBUG := $(CFLAGS) -Wall -O0 -g -D_GLIBCXX_DEBUG -DDEBUG_MODE
-RELEASE := $(CFLAGS) -Wall -O0 -g -D_GLIBCXX_DEBUG
+RELEASE := $(CFLAGS) -Wall -O3 -g -D_GLIBCXX_DEBUG
 
 # CONFIGURE RELEASE/DEBUG MODE HERE
 MODE := $(RELEASE)
