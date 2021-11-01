@@ -111,6 +111,7 @@ void ProdCon::Scheduler::stop() {
         item.join();
     }
 
+    io_obj->printSummary(t, *summary_ptr);
 }
 
 

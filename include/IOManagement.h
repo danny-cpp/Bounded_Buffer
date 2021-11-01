@@ -60,6 +60,23 @@ namespace ProdCon {
             this->release();
         }
 
+        void printSummary(std::mutex &t, std::vector<int> &summary) {
+            std::unique_lock<std::mutex> lk{t};
+            this->bind();
+            std::cout << "Summary:" << std::endl;
+            std::cout << "    Work     ";
+            std::cout << std::right << std::setw(6) << std::setfill(' ') << summary.at(0) << std::endl;
+            std::cout << "    Ask      ";
+            std::cout << std::right << std::setw(6) << std::setfill(' ') << summary.at(1) << std::endl;
+            std::cout << "    Receive  ";
+            std::cout << std::right << std::setw(6) << std::setfill(' ') << summary.at(2) << std::endl;
+            std::cout << "    Sleep    ";
+            std::cout << std::right << std::setw(6) << std::setfill(' ') << summary.at(3) << std::endl;
+            std::cout << "    Complete ";
+            std::cout << std::right << std::setw(6) << std::setfill(' ') << summary.at(4) << std::endl;
+            this->release();
+        }
+
     private:
         std::ofstream target_file;
         std::streambuf *reset_point;
