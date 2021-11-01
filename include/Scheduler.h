@@ -27,15 +27,17 @@ namespace ProdCon {
         void start(int n);
         void stop();
 
-        ProdCon::BufferedChannel *task_queue;
+        std::deque<ProdCon::InstructionToken> *task_queue;
         int num_thread;
         std::vector<std::thread> thread_array;
-        std::condition_variable cv;
+        std::condition_variable not_full;
+        std::condition_variable not_empty;
         std::mutex m;       // Mutex between threads (modify task queue)
         std::mutex t;       // Mutex between record log (write file)
         std::mutex s;       // Mutex between summary record (write vector)
         bool done;
         ProdCon::IOManagement *io_obj;
         std::vector<int>* summary_ptr;
+        std::atomic<int> current_count{0};
     };
 }
