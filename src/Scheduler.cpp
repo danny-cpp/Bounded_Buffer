@@ -9,6 +9,12 @@ ProdCon::Scheduler::Scheduler(ProdCon::BufferedChannel *queue, int thread_num, P
     done = false;
     this->io_obj = &io_obj;
     *summary_obj = std::vector<int>({0, 0, 0, 0, 0});
+
+    // Populate placeholder for thread statistics
+    for (int i = 0; i < num_thread; ++i) {
+        summary_obj->push_back(0);
+    }
+
     summary_ptr = summary_obj;
     begin_stamp = std::chrono::high_resolution_clock::now();
 
@@ -68,6 +74,7 @@ void ProdCon::Scheduler::start(int n) {
                     {
                         std::unique_lock<std::mutex> lck{s};
                         summary_ptr->at(2) += 1;
+                        summary_ptr->at(4 + tID) += 1;
                     }
 
 
@@ -112,6 +119,11 @@ void ProdCon::Scheduler::stop() {
     }
 
     auto stamp = Shell379::Utilities::totalTiming::stamp(begin_stamp);
+
+    for (const auto &item: *summary_ptr) {
+        std::cout << item << std::endl;
+    }
+
     io_obj->printSummary(t, *summary_ptr, stamp);
 }
 

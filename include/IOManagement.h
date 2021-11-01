@@ -74,6 +74,12 @@ namespace ProdCon {
             std::cout << std::right << std::setw(6) << std::setfill(' ') << summary.at(3) << std::endl;
             std::cout << "    Sleep    ";
             std::cout << std::right << std::setw(6) << std::setfill(' ') << summary.at(4) << std::endl;
+
+            for (int i = 5; i < summary.size(); ++i) {
+                std::cout << "    Thread";
+                std::cout << std::right << std::setw(3) << std::setfill(' ') << i - 4;
+                std::cout << std::right << std::setw(6) << std::setfill(' ') << summary.at(i) << std::endl;
+            }
             std::cout << "Transactions per second: " << summary.at(0)/(end_stamp/1000000) << std::endl;
             this->release();
         }
