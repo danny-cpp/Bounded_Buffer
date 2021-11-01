@@ -3,14 +3,13 @@
 
 static int ID = 1;
 ProdCon::Scheduler::Scheduler(ProdCon::BufferedChannel *queue, int thread_num, ProdCon::IOManagement &io_obj,
-                              std::vector<int> &summary) {
+                              std::vector<int> *summary_obj) {
     task_queue = queue;
     num_thread = thread_num;
     done = false;
     this->io_obj = &io_obj;
-    summary = std::vector<int>({0, 0, 0, 0, 0});
-    summary_ptr = std::make_shared<std::vector<int>>(summary);
-    summary_ptr->at(0) == 20;
+    *summary_obj = std::vector<int>({0, 0, 0, 0, 0});
+    summary_ptr = summary_obj;
     begin_stamp = std::chrono::high_resolution_clock::now();
 
     start(thread_num);

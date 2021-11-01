@@ -16,7 +16,7 @@ namespace ProdCon {
         using Task = std::function<void()>;
 
         Scheduler(ProdCon::BufferedChannel *queue, int thread_num, ProdCon::IOManagement &io_obj,
-                  std::vector<int> &summary);
+                  std::vector<int> *summary_obj);
 
         ~Scheduler();
 
@@ -35,6 +35,6 @@ namespace ProdCon {
         std::mutex t;
         bool done;
         ProdCon::IOManagement *io_obj;
-        std::shared_ptr<std::vector<int>> summary_ptr;
+        std::vector<int>* summary_ptr;
     };
 }
