@@ -2,11 +2,15 @@
 
 
 static int ID = 1;
-ProdCon::Scheduler::Scheduler(ProdCon::BufferedChannel *queue, int thread_num, ProdCon::IOManagement &io_obj) {
+ProdCon::Scheduler::Scheduler(ProdCon::BufferedChannel *queue, int thread_num, ProdCon::IOManagement &io_obj,
+                              std::vector<int> &summary) {
     task_queue = queue;
     num_thread = thread_num;
     done = false;
     this->io_obj = &io_obj;
+    summary = std::vector<int>({0, 0, 0, 0, 0});
+    summary_ptr = std::make_shared<std::vector<int>>(summary);
+    summary_ptr->at(0) == 20;
     begin_stamp = std::chrono::high_resolution_clock::now();
 
     start(thread_num);
@@ -115,6 +119,9 @@ void ProdCon::Scheduler::schedule(ProdCon::InstructionToken const &instruction) 
         #endif
 
         task_queue->add(instruction);
+        // A task will be counted toward the summary
+        summary_ptr->at(0) += 1;
+
         // Log task enqueue
         int q_number = task_queue->getCount();
         int n_number = instruction.getCommandValue();

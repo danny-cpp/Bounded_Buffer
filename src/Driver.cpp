@@ -9,12 +9,16 @@
 
 
 std::chrono::time_point<std::chrono::system_clock> begin_stamp;
+
+static std::mutex m;
+static std::condition_variable cv;
+
 int main(int argc, char const *argv[]) {
 
     int thread_num;                         // User defined thread spawn
     std::string log_ID;                     // Log file name with format prodcon.XX.log
     std::condition_variable exit_status;    // status of input complete. Result from an EOF signal
-
+    std::vector<int> summary;               // Vector stores summary data to be reported
 
     // Check arg as per specification.
     ProdCon::ArgumentCheck::checkArg(argc, argv, thread_num, log_ID);
@@ -28,7 +32,7 @@ int main(int argc, char const *argv[]) {
     // Task queue capacity is 2x the issued thread number.
     auto *task_queue = new ProdCon::BufferedChannel(thread_num * 2);
 
-    ProdCon::Scheduler scheduler(task_queue, thread_num, io_manager);
+    ProdCon::Scheduler scheduler(task_queue, thread_num, io_manager, summary);
 
 
     std::thread input_handler([&] {
@@ -45,6 +49,10 @@ int main(int argc, char const *argv[]) {
         std::cout << "Main thread has come to completion" << std::endl;
     #endif
 
+    std::cout << "Summary stat:" << std::endl;
+    for (const auto &item : summary) {
+        std::cout << item << std::endl;
+    }
 
 	return 0;
 }
