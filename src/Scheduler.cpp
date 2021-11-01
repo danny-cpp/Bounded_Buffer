@@ -67,7 +67,7 @@ void ProdCon::Scheduler::start(int n) {
 
                     // Completed log
                     int n_number = token.getCommandValue();
-                    io_obj->record(t, tID, 1, "Complete", n_number);
+                    io_obj->record(t, tID, -1, "Complete", n_number);
                 };
 
                 task();
@@ -82,6 +82,9 @@ void ProdCon::Scheduler::stop() {
         // Lock the mutex and change the done flag
         std::unique_lock<std::mutex> lock{m};
         done = true;
+
+        // End of input
+        io_obj->record(t, 0, -1, "End", -1);
     }
 
     // The mutex is unlocked at this point. Now the condition variable signify all
@@ -101,24 +104,21 @@ void ProdCon::Scheduler::schedule(ProdCon::InstructionToken const &instruction) 
             std::cout << "Entering sleep for " << n << std::endl;
         #endif
         ProdCon::Utilities::Sleep(n);
+
+        // Log sleep
+        int n_number = instruction.getCommandValue();
+        io_obj->record(t, 0, -1, "Sleep", n_number);
     }
     else if (instruction.getCommandType() == 0) {
-        int n = instruction.getCommandValue();
         #if 0
             std::cout << "Entering trans for " << n << std::endl;
         #endif
 
-        // std::unique_lock<std::mutex> lock{m};
-        // while (!task_queue->try_push(instruction)) {
-        //
-        //     #if DEBUG_MODE
-        //             std::cout << "queue is full, current waiting is  " << task_queue->getCount() << std::endl;
-        //     #endif
-        //
-        //     std::this_thread::sleep_for(std::chrono::seconds(1));
-        // }
-
         task_queue->add(instruction);
+        // Log task enqueue
+        int q_number = task_queue->getCount();
+        int n_number = instruction.getCommandValue();
+        io_obj->record(t, 0, q_number, "Work", n_number);
     }
 }
 

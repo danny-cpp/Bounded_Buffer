@@ -33,11 +33,11 @@ namespace ProdCon {
             std::cout << "ID= ";
             std::cout << std::right << std::setw(2) << std::setfill(' ') << ID;
             if (Q_number != -1) {
-                std::cout << " Q= ";
-                std::cout << std::right << std::setw(3) << std::setfill(' ') << Q_number;
+                std::cout << " Q=";
+                std::cout << std::right << std::setw(2) << std::setfill(' ') << Q_number;
             }
             else {
-                std::cout << "    ";
+                std::cout << "  ";
                 std::cout << std::right << std::setw(3) << std::setfill(' ') << ' ';
             }
             std::cout << " ";
