@@ -121,11 +121,6 @@ void ProdCon::Scheduler::stop() {
     }
 
     auto stamp = Shell379::Utilities::totalTiming::stamp(begin_stamp);
-
-    for (const auto &item: *summary_ptr) {
-        std::cout << item << std::endl;
-    }
-
     io_obj->printSummary(t, *summary_ptr, stamp);
 }
 

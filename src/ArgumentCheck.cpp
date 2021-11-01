@@ -27,6 +27,11 @@ void ProdCon::ArgumentCheck::checkArg(int &argc, char const *argv[], int &return
     }
     return_thread_num = std::stoi(argv[1]);
 
+    if (return_thread_num < 1) {
+        std::cout << "Can't have less than 1 thread" << std::endl;
+        exit(-1);
+    }
+
 #if DEBUG_MODE
     std::cout << "Log file is: " << return_log_ID << std::endl;
 #endif

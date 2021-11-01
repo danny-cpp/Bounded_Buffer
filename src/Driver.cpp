@@ -42,10 +42,6 @@ int main(int argc, char const *argv[]) {
 
 
     input_handler.join();
-    // for (const auto &item: summary) {
-    //     std::cout << item << std::endl;
-    // }
-
 
 	return 0;
 }
