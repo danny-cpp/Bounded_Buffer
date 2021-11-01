@@ -111,7 +111,8 @@ void ProdCon::Scheduler::stop() {
         item.join();
     }
 
-    io_obj->printSummary(t, *summary_ptr);
+    auto stamp = Shell379::Utilities::totalTiming::stamp(begin_stamp);
+    io_obj->printSummary(t, *summary_ptr, stamp);
 }
 
 

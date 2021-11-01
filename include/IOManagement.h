@@ -60,7 +60,7 @@ namespace ProdCon {
             this->release();
         }
 
-        void printSummary(std::mutex &t, std::vector<int> &summary) {
+        void printSummary(std::mutex &t, std::vector<int> &summary, double end_stamp) {
             std::unique_lock<std::mutex> lk{t};
             this->bind();
             std::cout << "Summary:" << std::endl;
@@ -74,6 +74,7 @@ namespace ProdCon {
             std::cout << std::right << std::setw(6) << std::setfill(' ') << summary.at(3) << std::endl;
             std::cout << "    Sleep    ";
             std::cout << std::right << std::setw(6) << std::setfill(' ') << summary.at(4) << std::endl;
+            std::cout << "Transactions per second: " << summary.at(0)/(end_stamp/1000000) << std::endl;
             this->release();
         }
 
