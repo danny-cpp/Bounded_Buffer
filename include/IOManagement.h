@@ -70,9 +70,9 @@ namespace ProdCon {
             std::cout << std::right << std::setw(6) << std::setfill(' ') << summary.at(1) << std::endl;
             std::cout << "    Receive  ";
             std::cout << std::right << std::setw(6) << std::setfill(' ') << summary.at(2) << std::endl;
-            std::cout << "    Sleep    ";
-            std::cout << std::right << std::setw(6) << std::setfill(' ') << summary.at(3) << std::endl;
             std::cout << "    Complete ";
+            std::cout << std::right << std::setw(6) << std::setfill(' ') << summary.at(3) << std::endl;
+            std::cout << "    Sleep    ";
             std::cout << std::right << std::setw(6) << std::setfill(' ') << summary.at(4) << std::endl;
             this->release();
         }
