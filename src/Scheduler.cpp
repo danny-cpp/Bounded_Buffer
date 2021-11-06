@@ -4,7 +4,7 @@
 static int ID = 1;
 ProdCon::Scheduler::Scheduler(ProdCon::BufferedChannel *queue, int thread_num, ProdCon::IOManagement &io_obj,
                               std::vector<int> *summary_obj) {
-    task_queue = new std::deque<ProdCon::InstructionToken>();
+    task_queue = std::deque<ProdCon::InstructionToken>();
     num_thread = thread_num;
     done = false;
     this->io_obj = &io_obj;
@@ -57,18 +57,18 @@ void ProdCon::Scheduler::start(int n) {
                     // Entering blocking state until there is some task is ready on the queue or the
                     // program is finished
                     not_empty.wait(lock, [&] {
-                        return done || !task_queue->empty();
+                        return done || !task_queue.empty();
                     });
 
                     // Exit infinite loop when everything is done
-                    if (done && task_queue->empty()) {
+                    if (done && task_queue.empty()) {
                         break;
                     }
 
-                    token = task_queue->front();
+                    token = task_queue.front();
 
                     // This is when the thread received the work
-                    int q_number = task_queue->size();
+                    int q_number = task_queue.size();
                     int n_number = token.getCommandValue();
                     io_obj->record(t, tID, q_number, "Receive", n_number);
                     {
@@ -78,7 +78,7 @@ void ProdCon::Scheduler::start(int n) {
                     }
 
 
-                    task_queue->pop_front();
+                    task_queue.pop_front();
 
                     not_full.notify_all();
                 }
@@ -149,13 +149,13 @@ void ProdCon::Scheduler::schedule(ProdCon::InstructionToken const &instruction) 
         {
             std::unique_lock<std::mutex> lock{m};
 
-            while ((int)task_queue->size() >= num_thread*2) {
+            while ((int)task_queue.size() >= num_thread*2) {
                 not_full.wait(lock, [=] {
-                    return ((int)task_queue->size()) < num_thread*2;
+                    return ((int)task_queue.size()) < num_thread*2;
                 });
             }
 
-            task_queue->push_back(instruction);
+            task_queue.push_back(instruction);
 
             // Notify the threads waiting for resources
             not_empty.notify_one();
@@ -168,7 +168,7 @@ void ProdCon::Scheduler::schedule(ProdCon::InstructionToken const &instruction) 
         }
 
         // Log task enqueue
-        int q_number = task_queue->size();
+        int q_number = task_queue.size();
         int n_number = instruction.getCommandValue();
         io_obj->record(t, 0, q_number, "Work", n_number);
     }

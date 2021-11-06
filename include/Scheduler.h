@@ -27,7 +27,7 @@ namespace ProdCon {
         void start(int n);
         void stop();
 
-        std::deque<ProdCon::InstructionToken> *task_queue;
+        std::deque<ProdCon::InstructionToken> task_queue;
         int num_thread;
         std::vector<std::thread> thread_array;
         std::condition_variable not_full;
