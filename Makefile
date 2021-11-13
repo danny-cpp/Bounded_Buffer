@@ -22,7 +22,7 @@ TARGET	:= bin/$(PRJNAME)
 CFLAGS := -std=c++11 -MP -MD -pthread -pipe
 DEBUG := $(CFLAGS) -Wall -O0 -g -D_GLIBCXX_DEBUG -DDEBUG_MODE
 RELEASE := $(CFLAGS) -Wall -O3
-EXTREME := $(CFLAGS) -Ofast -frename-registers -fopenmp -D_GLIBCXX_PARALLEL -march=native # Don't think about it
+EXTREME := $(CFLAGS) -Ofast -frename-registers -fopenmp -D_GLIBCXX_PARALLEL -march=native # Don't even think about it
 # Turn this to false to see command echo to shell
 SUPPR_ECHO := true
 
@@ -31,7 +31,7 @@ SUPPR_ECHO := true
 NPROCS = $(shell grep -c 'processor' /proc/cpuinfo)
 # Using the following command instead for MacOS
 ### NPROCS = $(shell sysctl hw.ncpu  | grep -o '[0-9]\+')
-# If error occurs manually reduces NPROCS to 1.
+# If error occurs manually reduce NPROCS to 1.
 MAKEFLAGS += -j$(NPROCS)
 
 # CONFIGURE RELEASE/DEBUG MODE HERE
