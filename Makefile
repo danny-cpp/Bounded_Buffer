@@ -19,9 +19,10 @@ TARGET	:= bin/$(PRJNAME)
 # Do not remove -MP -MD flags. These are necessary for generating *.d files,
 # which contains rules for headers.
 # Change optimization flag (-OX) here. Add/Remove debug flag (-g) here.
-CFLAGS := -std=c++11 -MP -MD -pthread
+CFLAGS := -std=c++11 -MP -MD -pthread -pipe
 DEBUG := $(CFLAGS) -Wall -O0 -g -D_GLIBCXX_DEBUG -DDEBUG_MODE
-RELEASE := $(CFLAGS) -Wall -O3 -D_GLIBCXX_DEBUG
+RELEASE := $(CFLAGS) -Wall -O3
+EXTREME := $(CFLAGS) -Ofast -frename-registers -fopenmp -D_GLIBCXX_PARALLEL -march=native # Don't think about it
 # Turn this to false to see command echo to shell
 SUPPR_ECHO := true
 
