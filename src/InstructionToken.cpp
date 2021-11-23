@@ -9,22 +9,24 @@ ProdCon::InstructionToken::InstructionToken(int command_type, int command_value)
 ProdCon::InstructionToken::InstructionToken(std::string inp_string) {
     std::string value = inp_string.substr(1);
     int n_value = std::stoi(value);
-
+    try {
         if (inp_string.at(0) == 'T') {
-            #if 0
-                std::cout << "Trans for " << n_value << std::endl;
-            #endif
+#if 0
+            std::cout << "Trans for " << n_value << std::endl;
+#endif
             this->command_type = 0;
             this->command_value = n_value;
-        }
-        else {
-            #if 0
-                std::cout << "Sleep for " << n_value << std::endl;
-            #endif
+        } else {
+#if 0
+            std::cout << "Sleep for " << n_value << std::endl;
+#endif
             this->command_type = 1;
             this->command_value = n_value;
         }
-
+    } catch (const std::exception& e) {
+            this->command_type = -1;
+            this->command_value = -1;
+    }
 }
 
 int ProdCon::InstructionToken::getCommandType() const {

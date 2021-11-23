@@ -126,6 +126,7 @@ void ProdCon::Scheduler::stop() {
 
 
 void ProdCon::Scheduler::schedule(ProdCon::InstructionToken const &instruction) {
+    if (instruction.getCommandType() == -1) return;
     if (instruction.getCommandType() == 1) {
         int n = instruction.getCommandValue();
         #if 0

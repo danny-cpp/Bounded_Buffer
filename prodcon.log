@@ -1,49 +1,520 @@
 0.000 ID=  1      Ask           
-0.000 ID=  1      Ask           
-0.000 ID=  2      Ask           
+0.000 ID=  7      Ask           
+0.000 ID=  7      Ask           
 0.000 ID=  3      Ask           
-0.001 ID=  0 Q= 1 Work         4
-0.001 ID=  1 Q= 1 Receive      4
-0.001 ID=  0 Q= 1 Work         2
-0.001 ID=  2 Q= 1 Receive      2
-0.001 ID=  0 Q= 1 Work         1
-0.001 ID=  3 Q= 1 Receive      1
-0.001 ID=  0 Q= 1 Work         1
-0.002 ID=  3      Complete     1
-0.002 ID=  3      Ask           
-0.002 ID=  3 Q= 1 Receive      1
-0.002 ID=  2      Complete     2
-0.002 ID=  2      Ask           
-0.003 ID=  3      Complete     1
-0.003 ID=  3      Ask           
-0.003 ID=  1      Complete     4
-0.003 ID=  1      Ask           
-0.092 ID=  0      Sleep        9
-0.092 ID=  0 Q= 1 Work         5
-0.092 ID=  2 Q= 1 Receive      5
-0.095 ID=  2      Complete     5
-0.095 ID=  2      Ask           
-0.102 ID=  0      Sleep        1
-0.102 ID=  0 Q= 1 Work         1
-0.102 ID=  3 Q= 1 Receive      1
-0.102 ID=  0 Q= 1 Work         1
-0.103 ID=  1 Q= 1 Receive      1
-0.103 ID=  0 Q= 1 Work         1
-0.103 ID=  2 Q= 1 Receive      1
-0.103 ID=  0      End           
-0.103 ID=  3      Complete     1
-0.103 ID=  3      Ask           
-0.103 ID=  1      Complete     1
-0.103 ID=  1      Ask           
-0.103 ID=  2      Complete     1
-0.104 ID=  2      Ask           
+0.001 ID=  4      Ask           
+0.001 ID=  5      Ask           
+0.001 ID=  6      Ask           
+0.001 ID=  2      Ask           
+0.001 ID=  8      Ask           
+0.001 ID=  9      Ask           
+0.001 ID= 10      Ask           
+0.001 ID=  0 Q= 1 Work       1897
+0.002 ID=  1 Q= 1 Receive    1897
+0.012 ID=  0      Sleep      1712
+0.022 ID=  0      Sleep      1887
+0.032 ID=  0      Sleep      1463
+0.032 ID=  0 Q= 1 Work       1107
+0.032 ID=  7 Q= 1 Receive    1107
+0.042 ID=  0      Sleep      1823
+0.053 ID=  0      Sleep      1048
+0.063 ID=  0      Sleep      1557
+0.073 ID=  0      Sleep      1524
+0.083 ID=  0      Sleep      1727
+0.093 ID=  0      Sleep      1794
+0.093 ID=  0 Q= 1 Work       1620
+0.094 ID=  3 Q= 1 Receive    1620
+0.094 ID=  0 Q= 1 Work       1958
+0.094 ID=  4 Q= 1 Receive    1958
+0.104 ID=  0      Sleep      1126
+0.114 ID=  0      Sleep      1426
+0.124 ID=  0      Sleep      1611
+0.124 ID=  0 Q= 1 Work       1072
+0.124 ID=  5 Q= 1 Receive    1072
+0.125 ID=  0 Q= 1 Work       1210
+0.125 ID=  6 Q= 1 Receive    1210
+0.125 ID=  0 Q= 1 Work       1816
+0.125 ID=  2 Q= 1 Receive    1816
+0.125 ID=  0 Q= 1 Work       1368
+0.125 ID=  8 Q= 1 Receive    1368
+0.125 ID=  0 Q= 1 Work       1749
+0.126 ID=  9 Q= 1 Receive    1749
+0.126 ID=  0 Q= 1 Work       1816
+0.126 ID= 10 Q= 1 Receive    1816
+0.126 ID=  0 Q= 1 Work       1437
+0.136 ID=  0      Sleep      1605
+0.146 ID=  0      Sleep      1214
+0.146 ID=  0 Q= 2 Work       1586
+0.147 ID=  0 Q= 3 Work       1028
+0.157 ID=  0      Sleep      1232
+0.167 ID=  0      Sleep      1960
+0.177 ID=  0      Sleep      1437
+0.177 ID=  0 Q= 4 Work       1248
+0.187 ID=  0      Sleep      1453
+0.188 ID=  0 Q= 5 Work       1726
+0.188 ID=  0 Q= 6 Work       1807
+0.198 ID=  0      Sleep      1872
+0.208 ID=  0      Sleep      1504
+0.218 ID=  0      Sleep      1620
+0.218 ID=  0 Q= 7 Work       1538
+0.229 ID=  0      Sleep      1178
+0.239 ID=  0      Sleep      1187
+0.249 ID=  0      Sleep      1802
+0.259 ID=  0      Sleep      1185
+0.259 ID=  0 Q= 8 Work       1264
+0.269 ID=  0      Sleep      1130
+0.270 ID=  0 Q= 9 Work       1893
+0.280 ID=  0      Sleep      1244
+0.280 ID=  0 Q=10 Work       1789
+0.280 ID=  0 Q=11 Work       1911
+0.280 ID=  0 Q=12 Work       1681
+0.290 ID=  0      Sleep      1487
+0.301 ID=  0      Sleep      1125
+0.301 ID=  0 Q=13 Work       1749
+0.301 ID=  0 Q=14 Work       1359
+0.311 ID=  0      Sleep      1018
+0.311 ID=  0 Q=15 Work       1892
+0.311 ID=  0 Q=16 Work       1585
+0.311 ID=  0 Q=17 Work       1259
+0.321 ID=  0      Sleep      1296
+0.332 ID=  0      Sleep      1253
+0.332 ID=  0 Q=18 Work       1085
+0.342 ID=  0      Sleep      1357
+0.352 ID=  0      Sleep      1114
+0.362 ID=  0      Sleep      1509
+0.362 ID=  0 Q=19 Work       1977
+0.373 ID=  0      Sleep      1156
+0.373 ID=  0 Q=20 Work       1669
+0.383 ID=  0      Sleep      1132
+0.393 ID=  0      Sleep      1658
+0.403 ID=  0      Sleep      1500
+0.798 ID=  7      Complete   1107
+0.798 ID=  7      Ask           
+0.798 ID=  7 Q=20 Receive    1437
+0.798 ID=  0 Q=20 Work       1538
+0.848 ID=  5      Complete   1072
+0.849 ID=  5      Ask           
+0.849 ID=  5 Q=20 Receive    1586
+0.849 ID=  0 Q=20 Work       1479
+0.946 ID=  6      Complete   1210
+0.946 ID=  6      Ask           
+0.946 ID=  6 Q=20 Receive    1028
+0.947 ID=  0 Q=20 Work       1198
+1.130 ID=  8      Complete   1368
+1.130 ID=  8      Ask           
+1.130 ID=  8 Q=20 Receive    1248
+1.130 ID=  0 Q=20 Work       1077
+1.141 ID=  0      Sleep      1435
+1.225 ID=  3      Complete   1620
+1.225 ID=  3      Ask           
+1.225 ID=  3 Q=20 Receive    1726
+1.225 ID=  0 Q=20 Work       1835
+1.236 ID=  0      Sleep      1143
+1.246 ID=  0      Sleep      1720
+1.254 ID=  1      Complete   1897
+1.254 ID=  1      Ask           
+1.254 ID=  1 Q=20 Receive    1807
+1.254 ID=  0 Q=20 Work       1968
+1.365 ID=  2      Complete   1816
+1.366 ID=  2      Ask           
+1.366 ID=  2 Q=20 Receive    1538
+1.366 ID=  0 Q=20 Work       1768
+1.372 ID=  9      Complete   1749
+1.372 ID=  9      Ask           
+1.372 ID=  9 Q=20 Receive    1264
+1.372 ID=  0 Q=20 Work       1785
+1.395 ID= 10      Complete   1816
+1.395 ID= 10      Ask           
+1.395 ID= 10 Q=20 Receive    1893
+1.395 ID=  0 Q=20 Work       1837
+1.445 ID=  4      Complete   1958
+1.445 ID=  4      Ask           
+1.446 ID=  4 Q=20 Receive    1789
+1.446 ID=  0 Q=20 Work       1079
+1.667 ID=  6      Complete   1028
+1.667 ID=  6      Ask           
+1.667 ID=  6 Q=20 Receive    1911
+1.668 ID=  0 Q=20 Work       1002
+1.795 ID=  7      Complete   1437
+1.795 ID=  7      Ask           
+1.795 ID=  7 Q=20 Receive    1681
+1.795 ID=  0 Q=20 Work       1427
+1.805 ID=  0      Sleep      1880
+1.902 ID=  5      Complete   1586
+1.902 ID=  5      Ask           
+1.902 ID=  5 Q=20 Receive    1749
+1.902 ID=  0 Q=20 Work       1243
+1.912 ID=  0      Sleep      1956
+2.010 ID=  8      Complete   1248
+2.010 ID=  8      Ask           
+2.010 ID=  8 Q=20 Receive    1359
+2.010 ID=  0 Q=20 Work       1696
+2.020 ID=  0      Sleep      1880
+2.242 ID=  9      Complete   1264
+2.243 ID=  9      Ask           
+2.243 ID=  9 Q=20 Receive    1892
+2.243 ID=  0 Q=20 Work       1304
+2.253 ID=  0      Sleep      1569
+2.263 ID=  0      Sleep      1010
+2.273 ID=  0      Sleep      1779
+2.392 ID=  2      Complete   1538
+2.393 ID=  2      Ask           
+2.393 ID=  2 Q=20 Receive    1585
+2.393 ID=  0 Q=20 Work       1265
+2.403 ID=  0      Sleep      1522
+2.438 ID=  3      Complete   1726
+2.438 ID=  3      Ask           
+2.438 ID=  3 Q=20 Receive    1259
+2.439 ID=  0 Q=20 Work       1565
+2.449 ID=  0      Sleep      1458
+2.481 ID=  1      Complete   1807
+2.481 ID=  1      Ask           
+2.481 ID=  1 Q=20 Receive    1085
+2.481 ID=  0 Q=20 Work       1457
+2.706 ID=  4      Complete   1789
+2.706 ID=  4      Ask           
+2.706 ID=  4 Q=20 Receive    1977
+2.706 ID=  0 Q=20 Work       1376
+2.716 ID=  0      Sleep      1742
+2.727 ID=  0      Sleep      1449
+2.768 ID= 10      Complete   1893
+2.768 ID= 10      Ask           
+2.768 ID= 10 Q=20 Receive    1669
+2.769 ID=  0 Q=20 Work       1623
+2.952 ID=  7      Complete   1681
+2.952 ID=  7      Ask           
+2.952 ID=  7 Q=20 Receive    1538
+2.953 ID=  0 Q=20 Work       1099
+2.954 ID=  8      Complete   1359
+2.954 ID=  8      Ask           
+2.954 ID=  8 Q=20 Receive    1479
+2.954 ID=  0 Q=20 Work       1359
+2.998 ID=  6      Complete   1911
+2.998 ID=  6      Ask           
+2.998 ID=  6 Q=20 Receive    1198
+2.998 ID=  0 Q=20 Work       1813
+3.008 ID=  0      Sleep      1469
+3.019 ID=  0      Sleep      1976
+3.029 ID=  0      Sleep      1388
+3.039 ID=  0      Sleep      1579
+3.110 ID=  5      Complete   1749
+3.110 ID=  5      Ask           
+3.110 ID=  5 Q=20 Receive    1077
+3.110 ID=  0 Q=20 Work       1542
+3.212 ID=  1      Complete   1085
+3.212 ID=  1      Ask           
+3.212 ID=  1 Q=20 Receive    1835
+3.212 ID=  0 Q=20 Work       1651
+3.222 ID=  0      Sleep      1349
+3.280 ID=  3      Complete   1259
+3.280 ID=  3      Ask           
+3.280 ID=  3 Q=20 Receive    1968
+3.280 ID=  0 Q=20 Work       1235
+3.491 ID=  2      Complete   1585
+3.491 ID=  2      Ask           
+3.491 ID=  2 Q=20 Receive    1768
+3.491 ID=  0 Q=20 Work       1926
+3.564 ID=  9      Complete   1892
+3.564 ID=  9      Ask           
+3.565 ID=  9 Q=20 Receive    1785
+3.565 ID=  0 Q=20 Work       1416
+3.575 ID=  0      Sleep      1597
+3.585 ID=  0      Sleep      1479
+3.855 ID=  6      Complete   1198
+3.855 ID=  6      Ask           
+3.855 ID=  6 Q=20 Receive    1837
+3.856 ID=  0 Q=20 Work       1283
+3.858 ID=  5      Complete   1077
+3.858 ID=  5      Ask           
+3.859 ID=  5 Q=20 Receive    1079
+3.859 ID=  0 Q=20 Work       1873
+3.936 ID= 10      Complete   1669
+3.936 ID= 10      Ask           
+3.936 ID= 10 Q=20 Receive    1002
+3.936 ID=  0 Q=20 Work       1787
+3.946 ID=  0      Sleep      1150
+4.012 ID=  7      Complete   1538
+4.013 ID=  7      Ask           
+4.013 ID=  7 Q=20 Receive    1427
+4.013 ID=  0 Q=20 Work       1336
+4.033 ID=  8      Complete   1479
+4.033 ID=  8      Ask           
+4.033 ID=  8 Q=20 Receive    1243
+4.033 ID=  0 Q=20 Work       1672
+4.072 ID=  4      Complete   1977
+4.072 ID=  4      Ask           
+4.072 ID=  4 Q=20 Receive    1696
+4.072 ID=  0 Q=20 Work       1247
+4.082 ID=  0      Sleep      1354
+4.092 ID=  0      Sleep      1472
+4.503 ID=  1      Complete   1835
+4.503 ID=  1      Ask           
+4.503 ID=  1 Q=20 Receive    1304
+4.503 ID=  0 Q=20 Work       1560
+4.617 ID=  5      Complete   1079
+4.617 ID=  5      Ask           
+4.617 ID=  5 Q=20 Receive    1265
+4.618 ID=  0 Q=20 Work       1027
+4.633 ID= 10      Complete   1002
+4.634 ID= 10      Ask           
+4.634 ID= 10 Q=20 Receive    1565
+4.634 ID=  0 Q=20 Work       1316
+4.660 ID=  3      Complete   1968
+4.660 ID=  3      Ask           
+4.660 ID=  3 Q=20 Receive    1457
+4.660 ID=  0 Q=20 Work       1168
+4.736 ID=  2      Complete   1768
+4.736 ID=  2      Ask           
+4.736 ID=  2 Q=20 Receive    1376
+4.736 ID=  0 Q=20 Work       1967
+4.746 ID=  0      Sleep      1425
+4.757 ID=  0      Sleep      1682
+4.767 ID=  0      Sleep      1565
+4.829 ID=  9      Complete   1785
+4.829 ID=  9      Ask           
+4.829 ID=  9 Q=20 Receive    1623
+4.829 ID=  0 Q=20 Work       1620
+4.893 ID=  8      Complete   1243
+4.893 ID=  8      Ask           
+4.893 ID=  8 Q=20 Receive    1099
+4.893 ID=  0 Q=20 Work       1642
+4.904 ID=  0      Sleep      1422
+5.016 ID=  7      Complete   1427
+5.016 ID=  7      Ask           
+5.016 ID=  7 Q=20 Receive    1359
+5.016 ID=  0 Q=20 Work       1334
+5.119 ID=  6      Complete   1837
+5.119 ID=  6      Ask           
+5.120 ID=  6 Q=20 Receive    1813
+5.120 ID=  0 Q=20 Work       1673
+5.241 ID=  4      Complete   1696
+5.242 ID=  4      Ask           
+5.242 ID=  4 Q=20 Receive    1542
+5.242 ID=  0 Q=20 Work       1862
+5.421 ID=  1      Complete   1304
+5.421 ID=  1      Ask           
+5.422 ID=  1 Q=20 Receive    1651
+5.422 ID=  0 Q=20 Work       1595
+5.432 ID=  0      Sleep      1660
+5.472 ID=  5      Complete   1265
+5.472 ID=  5      Ask           
+5.472 ID=  5 Q=20 Receive    1235
+5.472 ID=  0 Q=20 Work       1954
+5.482 ID=  0      Sleep      1450
+5.648 ID=  8      Complete   1099
+5.648 ID=  8      Ask           
+5.648 ID=  8 Q=20 Receive    1926
+5.648 ID=  0 Q=20 Work       1628
+5.679 ID=  3      Complete   1457
+5.679 ID=  3      Ask           
+5.679 ID=  3 Q=20 Receive    1416
+5.680 ID=  0 Q=20 Work       1632
+5.717 ID= 10      Complete   1565
+5.717 ID= 10      Ask           
+5.717 ID= 10 Q=20 Receive    1283
+5.717 ID=  0 Q=20 Work       1914
+5.727 ID=  0      Sleep      1213
+5.731 ID=  2      Complete   1376
+5.731 ID=  2      Ask           
+5.732 ID=  2 Q=20 Receive    1873
+5.732 ID=  0 Q=20 Work       1637
+5.970 ID=  9      Complete   1623
+5.971 ID=  9      Ask           
+5.971 ID=  9 Q=20 Receive    1787
+5.971 ID=  0 Q=20 Work       1417
+5.977 ID=  7      Complete   1359
+5.977 ID=  7      Ask           
+5.977 ID=  7 Q=20 Receive    1336
+5.977 ID=  0 Q=20 Work       1927
+6.323 ID=  5      Complete   1235
+6.323 ID=  5      Ask           
+6.323 ID=  5 Q=20 Receive    1672
+6.323 ID=  0 Q=20 Work       1376
+6.333 ID=  4      Complete   1542
+6.333 ID=  4      Ask           
+6.333 ID=  4 Q=20 Receive    1247
+6.333 ID=  0 Q=20 Work       1338
+6.343 ID=  0      Sleep      1317
+6.354 ID=  0      Sleep      1296
+6.364 ID=  0      Sleep      1591
+6.400 ID=  6      Complete   1813
+6.400 ID=  6      Ask           
+6.400 ID=  6 Q=20 Receive    1560
+6.401 ID=  0 Q=20 Work       1824
+6.559 ID=  1      Complete   1651
+6.559 ID=  1      Ask           
+6.559 ID=  1 Q=20 Receive    1027
+6.560 ID=  0 Q=20 Work       1407
+6.593 ID= 10      Complete   1283
+6.594 ID= 10      Ask           
+6.594 ID= 10 Q=20 Receive    1316
+6.594 ID=  0 Q=20 Work       1977
+6.604 ID=  0      Sleep      1802
+6.647 ID=  3      Complete   1416
+6.647 ID=  3      Ask           
+6.647 ID=  3 Q=20 Receive    1168
+6.647 ID=  0 Q=20 Work       1850
+6.940 ID=  7      Complete   1336
+6.940 ID=  7      Ask           
+6.940 ID=  7 Q=20 Receive    1967
+6.940 ID=  0 Q=20 Work       1856
+6.960 ID=  8      Complete   1926
+6.960 ID=  8      Ask           
+6.961 ID=  8 Q=20 Receive    1620
+6.961 ID=  0 Q=20 Work       1899
+7.039 ID=  2      Complete   1873
+7.040 ID=  2      Ask           
+7.040 ID=  2 Q=20 Receive    1642
+7.040 ID=  0 Q=20 Work       1929
+7.050 ID=  0      Sleep      1727
+7.060 ID=  0      Sleep      1587
+7.224 ID=  4      Complete   1247
+7.224 ID=  4      Ask           
+7.224 ID=  4 Q=20 Receive    1334
+7.224 ID=  0 Q=20 Work       1828
+7.235 ID=  0      Sleep      1305
+7.241 ID=  9      Complete   1787
+7.241 ID=  9      Ask           
+7.242 ID=  9 Q=20 Receive    1673
+7.245 ID=  0      Sleep      1551
+7.255 ID=  0      Sleep      1640
+7.265 ID=  0      Sleep      1145
+7.269 ID=  1      Complete   1027
+7.269 ID=  1      Ask           
+7.269 ID=  1 Q=19 Receive    1862
+7.275 ID=  0      Sleep      1041
+7.286 ID=  0      Sleep      1973
+7.296 ID=  0      Sleep      1571
+7.306 ID=  0      Sleep      1928
+7.316 ID=  0      Sleep      1555
+7.326 ID=  0      Sleep      1212
+7.326 ID=  0 Q=19 Work       1041
+7.327 ID=  0 Q=20 Work       1251
+7.471 ID=  3      Complete   1168
+7.471 ID=  3      Ask           
+7.471 ID=  3 Q=20 Receive    1595
+7.471 ID=  0 Q=20 Work       1780
+7.500 ID=  5      Complete   1672
+7.500 ID=  5      Ask           
+7.500 ID=  5 Q=20 Receive    1954
+7.500 ID=  0 Q=20 Work       1720
+7.509 ID=  6      Complete   1560
+7.509 ID=  6      Ask           
+7.509 ID=  6 Q=20 Receive    1628
+7.509 ID=  0 Q=20 Work       1942
+7.517 ID= 10      Complete   1316
+7.517 ID= 10      Ask           
+7.517 ID= 10 Q=20 Receive    1632
+7.520 ID=  0      Sleep      1550
+7.530 ID=  0      Sleep      1904
+7.530 ID=  0 Q=20 Work       1133
+8.107 ID=  8      Complete   1620
+8.108 ID=  8      Ask           
+8.108 ID=  8 Q=20 Receive    1914
+8.108 ID=  0 Q=20 Work       1816
+8.124 ID=  4      Complete   1334
+8.124 ID=  4      Ask           
+8.124 ID=  4 Q=20 Receive    1637
+8.125 ID=  0 Q=20 Work       1173
+8.176 ID=  2      Complete   1642
+8.177 ID=  2      Ask           
+8.177 ID=  2 Q=20 Receive    1417
+8.177 ID=  0 Q=20 Work       1063
+8.177 ID=  0      End           
+8.338 ID=  7      Complete   1967
+8.338 ID=  7      Ask           
+8.338 ID=  7 Q=20 Receive    1927
+8.395 ID=  9      Complete   1673
+8.395 ID=  9      Ask           
+8.395 ID=  9 Q=19 Receive    1376
+8.547 ID=  3      Complete   1595
+8.547 ID=  3      Ask           
+8.547 ID=  3 Q=18 Receive    1338
+8.589 ID=  1      Complete   1862
+8.589 ID=  1      Ask           
+8.589 ID=  1 Q=17 Receive    1824
+8.606 ID=  6      Complete   1628
+8.606 ID=  6      Ask           
+8.606 ID=  6 Q=16 Receive    1407
+8.667 ID= 10      Complete   1632
+8.667 ID= 10      Ask           
+8.667 ID= 10 Q=15 Receive    1977
+8.862 ID=  5      Complete   1954
+8.862 ID=  5      Ask           
+8.863 ID=  5 Q=14 Receive    1850
+9.208 ID=  2      Complete   1417
+9.208 ID=  2      Ask           
+9.208 ID=  2 Q=13 Receive    1856
+9.268 ID=  4      Complete   1637
+9.269 ID=  4      Ask           
+9.269 ID=  4 Q=12 Receive    1899
+9.343 ID=  9      Complete   1376
+9.343 ID=  9      Ask           
+9.344 ID=  9 Q=11 Receive    1929
+9.458 ID=  8      Complete   1914
+9.458 ID=  8      Ask           
+9.458 ID=  8 Q=10 Receive    1828
+9.467 ID=  3      Complete   1338
+9.468 ID=  3      Ask           
+9.468 ID=  3 Q= 9 Receive    1041
+9.604 ID=  6      Complete   1407
+9.604 ID=  6      Ask           
+9.604 ID=  6 Q= 8 Receive    1251
+9.606 ID=  7      Complete   1927
+9.606 ID=  7      Ask           
+9.606 ID=  7 Q= 7 Receive    1780
+9.911 ID=  1      Complete   1824
+9.911 ID=  1      Ask           
+9.911 ID=  1 Q= 6 Receive    1720
+10.079ID= 10      Complete   1977
+10.079ID= 10      Ask           
+10.079ID= 10 Q= 5 Receive    1942
+10.190ID=  3      Complete   1041
+10.190ID=  3      Ask           
+10.191ID=  3 Q= 4 Receive    1133
+10.217ID=  5      Complete   1850
+10.217ID=  5      Ask           
+10.217ID=  5 Q= 3 Receive    1816
+10.478ID=  6      Complete   1251
+10.478ID=  6      Ask           
+10.478ID=  6 Q= 2 Receive    1173
+10.504ID=  2      Complete   1856
+10.505ID=  2      Ask           
+10.505ID=  2 Q= 1 Receive    1063
+10.598ID=  4      Complete   1899
+10.598ID=  4      Ask           
+10.703ID=  9      Complete   1929
+10.703ID=  9      Ask           
+10.760ID=  8      Complete   1828
+10.760ID=  8      Ask           
+10.819ID=  7      Complete   1780
+10.819ID=  7      Ask           
+10.935ID=  3      Complete   1133
+10.935ID=  3      Ask           
+11.098ID=  1      Complete   1720
+11.098ID=  1      Ask           
+11.194ID=  2      Complete   1063
+11.194ID=  2      Ask           
+11.228ID=  6      Complete   1173
+11.228ID=  6      Ask           
+11.338ID= 10      Complete   1942
+11.338ID= 10      Ask           
+11.391ID=  5      Complete   1816
+11.391ID=  5      Ask           
 Summary:
-    Work          8
-    Ask          11
-    Receive       8
-    Complete      8
-    Sleep         2
-    Thread  1     2
-    Thread  2     3
-    Thread  3     3
-Transactions per second: 77.176
+    Work        101
+    Ask         111
+    Receive     101
+    Complete    101
+    Sleep        87
+    Thread  1    10
+    Thread  2    10
+    Thread  3    11
+    Thread  4     9
+    Thread  5    11
+    Thread  6    11
+    Thread  7    10
+    Thread  8    10
+    Thread  9     9
+    Thread 10    10
+Transactions per second: 8.866

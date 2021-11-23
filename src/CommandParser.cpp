@@ -8,7 +8,7 @@ int Shell379::CommandParser::parse(bool &return_eof, ProdCon::BufferedChannel &w
     while(!std::cin.eof()) {
         getline(std::cin, s);
         // std::cout << s << std::endl;
-
+        if (s == "" || s.at(0) == '\r') break;
         ProdCon::InstructionToken i(s);
         scheduler.schedule(i);
     }
